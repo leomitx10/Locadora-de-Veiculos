@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cf87562c-7c8c-4c48-95ff-ba85b008e00d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/DataConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplicationTests.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Maria-Eduarda-s&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:leomitx10/Locadora-de-Veiculos.git&quot;,
+    &quot;accountId&quot;: &quot;2bfde9e1-8fde-4bad-b034-486c602acf81&quot;
+  }
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="jdkForImporter" value="21" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="21" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2lDykdwfVBUDQ7G6JeUMcoHwcvH" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.LocadoraDeVeiculosApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Project.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;InicioProjeto&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/maria/OneDrive/Área de Trabalho/dashleo/dash-lep-elasticcode-feature-barra-de-pesquisa&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Application.LocadoraDeVeiculosApplication">
+    <configuration name="LocadoraDeVeiculosApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.squad2.LocadoraDeVeiculos.LocadoraDeVeiculosApplication" />
+      <module name="Locadora-de-Veiculos" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.squad2.LocadoraDeVeiculos.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Project" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.squad2.LocadoraDeVeiculos.LocadoraDeVeiculosApplicationT" />
+      <module name="Locadora-de-Veiculos" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Project" />
+      <item itemvalue="Application.LocadoraDeVeiculosApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.LocadoraDeVeiculosApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf87562c-7c8c-4c48-95ff-ba85b008e00d" name="Changes" comment="" />
+      <created>1724729086499</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1724729086499</updated>
+    </task>
+    <servers />
+  </component>
+</project>
