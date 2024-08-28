@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 
 
-import in.bushansirgur.springboot.crudapi.model.Employee;
+import in.bushansirgur.springboot.crudapi.model.Pessoa;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
@@ -20,22 +20,22 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	private EntityManager entityManager;
 	
 	@Override
-	public List<Employee> get() {
+	public List<Pessoa> get() {
 		Session currentSession = entityManager.unwrap(Session.class);
-		Query<Employee> query = currentSession.createQuery("from Employee", Employee.class);
-		List<Employee> list = query.getResultList();
+		Query<Pessoa> query = currentSession.createQuery("from Employee", Pessoa.class);
+		List<Pessoa> list = query.getResultList();
 		return list;
 	}
 
 	@Override
-	public Employee get(int id) {
+	public Pessoa get(int id) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		Employee employeeObj = currentSession.get(Employee.class, id);
+		Pessoa employeeObj = currentSession.get(Pessoa.class, id);
 		return employeeObj;
 	}
 
 	@Override
-	public void save(Employee employee) {
+	public void save(Pessoa employee) {
 		Session currentSession = entityManager.unwrap(Session.class);
 		currentSession.saveOrUpdate(employee);
 	}
@@ -43,7 +43,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	@Override
 	public void delete(int id) {
 		Session currentSession = entityManager.unwrap(Session.class);
-		Employee employeeObj = currentSession.get(Employee.class, id);
+		Pessoa employeeObj = currentSession.get(Pessoa.class, id);
 		currentSession.delete(employeeObj);
 	}
 

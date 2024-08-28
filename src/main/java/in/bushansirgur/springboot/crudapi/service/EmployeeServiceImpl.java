@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import in.bushansirgur.springboot.crudapi.dao.EmployeeDAO;
-import in.bushansirgur.springboot.crudapi.model.Employee;
+import in.bushansirgur.springboot.crudapi.model.Pessoa;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -17,19 +17,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Transactional
 	@Override
-	public List<Employee> get() {
+	public List<Pessoa> get() {
 		return employeeDAO.get();
 	}
 
 	@Transactional
 	@Override
-	public Employee get(int id) {
+	public Pessoa get(int id) {
 		return employeeDAO.get(id);
 	}
 
 	@Transactional
 	@Override
-	public void save(Employee employee) {
+	public void save(Pessoa employee) {
 		employeeDAO.save(employee);
 	}
 

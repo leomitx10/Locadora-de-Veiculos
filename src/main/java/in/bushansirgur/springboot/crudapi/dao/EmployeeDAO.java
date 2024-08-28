@@ -2,15 +2,15 @@ package in.bushansirgur.springboot.crudapi.dao;
 
 import java.util.List;
 
-import in.bushansirgur.springboot.crudapi.model.Employee;
+import in.bushansirgur.springboot.crudapi.model.Pessoa;
 
 public interface EmployeeDAO {
 	
-	List<Employee> get();
+	List<Pessoa> get();
 	
-	Employee get(int id);
+	Pessoa get(int id);
 	
-	void save(Employee employee);
+	void save(Pessoa employee);
 	
 	void delete(int id); 
 }

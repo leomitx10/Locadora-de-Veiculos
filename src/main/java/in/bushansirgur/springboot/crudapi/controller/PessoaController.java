@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.bushansirgur.springboot.crudapi.model.Employee;
+import in.bushansirgur.springboot.crudapi.model.Pessoa;
 import in.bushansirgur.springboot.crudapi.service.EmployeeService;
 
 @RestController
@@ -23,19 +23,19 @@ public class PessoaController {
 	private EmployeeService employeeService;
 	
 	@PostMapping("/employee")
-	public Employee save(@RequestBody Employee employeeObj) {
+	public Pessoa save(@RequestBody Pessoa employeeObj) {
 		employeeService.save(employeeObj);
 		return employeeObj;
 	}
 	
 	@GetMapping("/employee")
-	public List<Employee> get(){
+	public List<Pessoa> get(){
 		return employeeService.get();
 	}
 	
 	@GetMapping("/employee/{id}")
-	public Employee get(@PathVariable int id) {
-		Employee employeeObj = employeeService.get(id);
+	public Pessoa get(@PathVariable int id) {
+		Pessoa employeeObj = employeeService.get(id);
 		if(employeeObj == null) {
 			throw new RuntimeException("Employee not found for the Id:"+id);
 		}
@@ -43,7 +43,7 @@ public class PessoaController {
 	}
 	
 	@PutMapping("/employee")
-	public Employee update(@RequestBody Employee employeeObj) {
+	public Pessoa update(@RequestBody Pessoa employeeObj) {
 		employeeService.save(employeeObj);
 		return employeeObj;
 	}
