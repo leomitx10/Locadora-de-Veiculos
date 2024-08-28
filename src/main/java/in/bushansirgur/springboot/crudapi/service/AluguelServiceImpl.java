@@ -1,0 +1,41 @@
+package in.bushansirgur.springboot.crudapi.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import in.bushansirgur.springboot.crudapi.dao.AluguelDAO;
+import in.bushansirgur.springboot.crudapi.model.Aluguel;
+
+@Service
+public class AluguelServiceImpl implements AluguelService {
+    
+    @Autowired
+    private AluguelDAO aluguelDAO;
+
+    @Transactional
+    @Override
+    public List<Aluguel> get() {
+        return aluguelDAO.get();
+    }
+
+    @Transactional
+    @Override
+    public Aluguel get(int id) {
+        return aluguelDAO.get(id);
+    }
+
+    @Transactional
+    @Override
+    public void save(Aluguel aluguel) {
+        aluguelDAO.save(aluguel);
+    }
+
+    @Transactional
+    @Override
+    public void delete(int id) {
+        aluguelDAO.delete(id);
+    }
+}
