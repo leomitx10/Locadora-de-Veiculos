@@ -1,9 +1,6 @@
 package in.bushansirgur.springboot.crudapi.model;
 
 import javax.persistence.*;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -30,15 +27,13 @@ public class Aluguel {
     @Column(nullable = false)
     private BigDecimal valorTotal;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "motorista_id", nullable = false)
-    @JsonIgnore
-    private Motorista motorista;
-
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "carro_id", nullable = false)
-    @JsonIgnore
     private Carro carro;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 
     public Integer getId() {
         return id;
@@ -80,14 +75,6 @@ public class Aluguel {
         this.valorTotal = valorTotal;
     }
 
-    public Motorista getMotorista() {
-        return motorista;
-    }
-
-    public void setMotorista(Motorista motorista) {
-        this.motorista = motorista;
-    }
-
     public Carro getCarro() {
         return carro;
     }
@@ -96,9 +83,18 @@ public class Aluguel {
         this.carro = carro;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
-        return "Aluguel [id=" + id + ", dataPedido=" + dataPedido + ", dataEntrega=" + dataEntrega + 
-               ", dataDevolucao=" + dataDevolucao + ", valorTotal=" + valorTotal + "]";
+        return "Aluguel [id=" + id + ", dataPedido=" + dataPedido + ", dataEntrega=" + dataEntrega +
+               ", dataDevolucao=" + dataDevolucao + ", valorTotal=" + valorTotal + 
+               ", carro=" + carro + ", user=" + user + "]";
     }
 }

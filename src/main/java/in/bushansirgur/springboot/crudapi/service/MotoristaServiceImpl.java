@@ -33,7 +33,7 @@ public class MotoristaServiceImpl implements MotoristaService {
     }
 
     @Override
-    public List<Motorista> getMotoristasByUserId(Long userId) { // Alterado para Long
+    public List<Motorista> getMotoristasByUserId(Long userId) {
         return motoristaDAO.findByUserId(userId);
     }
 }

@@ -12,11 +12,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import in.bushansirgur.springboot.crudapi.model.Motorista;
 import in.bushansirgur.springboot.crudapi.service.MotoristaService;
+import in.bushansirgur.springboot.crudapi.service.UserService;
+import in.bushansirgur.springboot.crudapi.model.User;
 
 @RestController
 @RequestMapping("/api")
 public class MotoristaController {
-
+	
+	@Autowired
+    private UserService userService;
+	
     @Autowired
     private MotoristaService motoristaService;
 
@@ -55,6 +60,17 @@ public class MotoristaController {
     @GetMapping("/users/{userId}/motoristas")
     public List<Motorista> getMotoristasByUser(@PathVariable Long userId) { 
         return motoristaService.getMotoristasByUserId(userId);
+    }
+    
+    @PostMapping("/users/{userId}/motoristas")
+    public Motorista addMotoristaToUser(@PathVariable Long userId, @RequestBody Motorista motorista) {
+        User user = userService.getUserById(userId);
+        if (user == null) {
+            throw new RuntimeException("User not found for the Id:" + userId);
+        }
+        motorista.setUser(user);
+        motoristaService.save(motorista);
+        return motorista;
     }
 }
 

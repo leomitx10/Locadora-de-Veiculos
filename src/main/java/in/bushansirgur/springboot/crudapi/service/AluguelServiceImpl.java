@@ -11,7 +11,7 @@ import in.bushansirgur.springboot.crudapi.model.Aluguel;
 
 @Service
 public class AluguelServiceImpl implements AluguelService {
-    
+
     @Autowired
     private AluguelDAO aluguelDAO;
 
@@ -37,5 +37,11 @@ public class AluguelServiceImpl implements AluguelService {
     @Override
     public void delete(int id) {
         aluguelDAO.delete(id);
+    }
+
+    @Transactional
+    @Override
+    public List<Aluguel> getByUserId(Long userId) {
+        return aluguelDAO.getByUserId(userId);  // Implementação do novo método
     }
 }

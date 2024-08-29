@@ -1,6 +1,7 @@
 package in.bushansirgur.springboot.crudapi.dao;
 
 import java.util.List;
+
 import in.bushansirgur.springboot.crudapi.model.Carro;
 
 public interface CarroDAO {
@@ -12,4 +13,5 @@ public interface CarroDAO {
     void save(Carro carro);
     
     void delete(int id); 
+    
 }

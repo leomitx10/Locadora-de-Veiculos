@@ -13,7 +13,6 @@ public class Motorista extends Pessoa {
     @JoinColumn(name = "user_id")
     private User user;
 
-    // Getters e Setters
     public String getNumeroCNH() {
         return numeroCNH;
     }

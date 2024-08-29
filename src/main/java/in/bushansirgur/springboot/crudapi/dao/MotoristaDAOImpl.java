@@ -47,7 +47,7 @@ public class MotoristaDAOImpl implements MotoristaDAO {
 
     @Override
     @Transactional
-    public List<Motorista> findByUserId(Long userId) { // Alterado para Long
+    public List<Motorista> findByUserId(Long userId) { 
         Session currentSession = entityManager.unwrap(Session.class);
         Query<Motorista> query = currentSession.createQuery("from Motorista where user.id = :userId", Motorista.class);
         query.setParameter("userId", userId);
