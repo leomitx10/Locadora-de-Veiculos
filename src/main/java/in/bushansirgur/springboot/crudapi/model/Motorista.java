@@ -3,8 +3,14 @@ package in.bushansirgur.springboot.crudapi.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Motorista extends Pessoa {
 
     private String numeroCNH;
@@ -13,24 +19,10 @@ public class Motorista extends Pessoa {
     @JoinColumn(name = "user_id")
     private User user;
 
-    public String getNumeroCNH() {
-        return numeroCNH;
-    }
-
-    public void setNumeroCNH(String numeroCNH) {
-        this.numeroCNH = numeroCNH;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
+    /* Caso seja necessario
     @Override
     public String toString() {
-        return "Motorista [numeroCNH=" + numeroCNH + ", user=" + user.getEmail() + "]";
+    return "Motorista [numeroCNH=" + numeroCNH + ", user=" + user.getEmail() + "]";
     }
+    */
 }
