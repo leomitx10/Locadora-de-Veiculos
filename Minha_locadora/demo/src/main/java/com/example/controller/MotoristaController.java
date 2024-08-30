@@ -22,7 +22,7 @@ import com.example.controller.UserController; // Ainda usa o UserController como
 public class MotoristaController {
 
     @Autowired
-    private UserController userService; // Considerando que você ainda quer usar o UserController
+    private UserController userService; 
 
     @Autowired
     private MotoristaService motoristaService;

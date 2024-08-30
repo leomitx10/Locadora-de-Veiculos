@@ -1,13 +1,7 @@
 package com.example.demo;
 
 import java.math.BigDecimal;
-
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "carro")
@@ -29,6 +23,11 @@ public class Carro {
     @Column(nullable = false)
     private BigDecimal valorDiaria;
 
+    @ManyToOne
+    @JoinColumn(name = "modelo_carro_id", nullable = false)
+    private ModeloCarro modeloCarro;
+
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -69,6 +68,14 @@ public class Carro {
         this.valorDiaria = valorDiaria;
     }
 
+    public ModeloCarro getModeloCarro() {
+        return modeloCarro;
+    }
+
+    public void setModeloCarro(ModeloCarro modeloCarro) {
+        this.modeloCarro = modeloCarro;
+    }
+
     @Override
     public String toString() {
         return "Carro{" +
@@ -77,6 +84,7 @@ public class Carro {
                 ", chassi='" + chassi + '\'' +
                 ", cor='" + cor + '\'' +
                 ", valorDiaria=" + valorDiaria +
+                ", modeloCarro=" + modeloCarro.getDescricao() +
                 '}';
     }
 }
