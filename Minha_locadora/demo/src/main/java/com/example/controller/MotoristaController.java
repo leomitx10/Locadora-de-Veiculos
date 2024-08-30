@@ -1,6 +1,7 @@
 package com.example.controller;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,18 +11,19 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.demo.Motorista;
-import com.example.service.MotoristaService;
-import com.example.service.UserService;
 
+import com.example.demo.Motorista;
+import com.example.demo.User;
+import com.example.service.MotoristaService;
+import com.example.controller.UserController; // Ainda usa o UserController como serviço
 
 @RestController
 @RequestMapping("/api")
 public class MotoristaController {
-	
-	@Autowired
-    private UserService userService;
-	
+
+    @Autowired
+    private UserController userService; // Considerando que você ainda quer usar o UserController
+
     @Autowired
     private MotoristaService motoristaService;
 
@@ -58,10 +60,10 @@ public class MotoristaController {
     }
 
     @GetMapping("/users/{userId}/motoristas")
-    public List<Motorista> getMotoristasByUser(@PathVariable Long userId) { 
+    public List<Motorista> getMotoristasByUser(@PathVariable Long userId) {
         return motoristaService.getMotoristasByUserId(userId);
     }
-    
+
     @PostMapping("/users/{userId}/motoristas")
     public Motorista addMotoristaToUser(@PathVariable Long userId, @RequestBody Motorista motorista) {
         User user = userService.getUserById(userId);
