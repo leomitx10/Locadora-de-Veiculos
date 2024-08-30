@@ -12,6 +12,7 @@ import java.util.List;
 @RequestMapping("/alugueis")
 public class AluguelController {
 
+
     @Autowired
     private AluguelService aluguelService;
 
@@ -28,8 +29,9 @@ public class AluguelController {
         return ResponseEntity.ok(alugueis);
     }
 
-    @PutMapping
-    public ResponseEntity<String> modificar(@RequestBody Aluguel aluguel) {
+    @PutMapping("/{id}")
+    public ResponseEntity<String> modificar(@PathVariable Long id, @RequestBody Aluguel aluguel) {
+        aluguel.setId(id);
         String mensagem = aluguelService.modificar(aluguel);
         return ResponseEntity.ok(mensagem);
     }
@@ -46,3 +48,12 @@ public class AluguelController {
         return ResponseEntity.ok("Sequência de ID resetada para 1.");
     }
 }
+
+/*CRUD
+http://localhost:8080/alugueis
+{
+  "dataPedido": "2024-08-01",
+  "dataEntrega": "2024-08-05",
+  "dataDevolucao": "2024-08-10"
+  }
+ */

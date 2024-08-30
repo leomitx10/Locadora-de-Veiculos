@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf87562c-7c8c-4c48-95ff-ba85b008e00d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/DataConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Locadora-de-Veiculos" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AluguelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AluguelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AluguelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AluguelService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/squad2/LocadoraDeVeiculos/LocadoraDeVeiculosApplicationTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -34,11 +36,16 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:leomitx10/Locadora-de-Veiculos.git&quot;,
+    &quot;url&quot;: &quot;https://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@github.com/alsoares086/Locadora_Veiculos.git&quot;,
     &quot;accountId&quot;: &quot;2bfde9e1-8fde-4bad-b034-486c602acf81&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="21" />
@@ -65,7 +72,7 @@
     &quot;Application.LocadoraDeVeiculosApplication.executor&quot;: &quot;Run&quot;,
     &quot;Application.Project.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;InicioProjeto&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;inicio-projeto&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/maria/OneDrive/Área de Trabalho/dashleo/dash-lep-elasticcode-feature-barra-de-pesquisa&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
@@ -112,5 +119,15 @@
       <updated>1724729086499</updated>
     </task>
     <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.net.ConnectException" package="java.net" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -25,4 +25,16 @@ public class Aluguel {
     private LocalDate dataEntrega;
     private LocalDate dataDevolucao;
     private BigDecimal valorTotal;
+
+    @ManyToOne
+    @JoinColumn(name = "carrinho_id")
+    private Carrinho carrinho;
+
+    @OneToOne
+    @JoinColumn(name = "carro_id")
+    private Carro carro;
+
+    @OneToOne
+    @JoinColumn(name = "apolice_id")
+    private ApoliceSeguro apoliceSeguro;
 }

@@ -1,12 +1,16 @@
 package com.squad2.LocadoraDeVeiculos.service;
 
 import com.squad2.LocadoraDeVeiculos.model.entity.Aluguel;
+import com.squad2.LocadoraDeVeiculos.model.entity.Carro;
 import com.squad2.LocadoraDeVeiculos.repository.AluguelRepository;
+import com.squad2.LocadoraDeVeiculos.repository.CarroRepository;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.List;
 
 @Service
@@ -16,7 +20,11 @@ public class AluguelService {
     private AluguelRepository aluguelRepository;
 
     @Autowired
+    private CarroRepository carroRepository;
+
+    @Autowired
     private EntityManager entityManager;
+
 
     public String salvar(Aluguel aluguel){
 
@@ -66,14 +74,28 @@ public class AluguelService {
                 .executeUpdate();
     }
 
+    public void calcularValorTotalAluguel(Long aluguelId, Long carroId) {
+        Aluguel aluguel = aluguelRepository.findById(aluguelId).orElse(null);
+        Carro carro = carroRepository.findById(carroId).orElse(null);
+
+        if (aluguel != null && carro != null) {
+            long diasAluguel = ChronoUnit.DAYS.between(aluguel.getDataEntrega(), aluguel.getDataDevolucao());
+            BigDecimal valorTotal = carro.getValorDiaria().multiply(BigDecimal.valueOf(diasAluguel));
+            aluguel.setValorTotal(valorTotal);
+            aluguelRepository.save(aluguel);
+        }
+    }
 }
-    //TODO selecionar periodo aluguel inicio e termino > crud feito
+    //OK TODO selecionar periodo aluguel inicio e termino > crud feito
+    //OK TODO crud apolice seguro
+
+    //CARRINHO
     //TODO adicionar veiculo ao carrinho de aluguel > criar associação veiculo(veiculo precisa de crud)
     // aluguel relacao de 1 p 1
-    //TODO exibir resumo carrinho aluguel > exibir resumo aluguel
+    //TODO exibir resumo carrinho aluguel > exibir resumo aluguel e veiculo
     //TODO cliente revisar carrinho e alterar > fazer crud(modificar)
     //TODO mostrar um print na tela de confirmação com detalhes da reserva > mostrar informações (dados inseridos)
-    //class carrinho //class pagamento
+    //class pagamento
     //TODO apos revisar carrinho, confirmar reserva e efetivar aluguel
     //TODO pagina de resumo da reserva com detalhes
     //TODO infromacoes: veiculo selecionado, datas, custo total e termos do aluguel
@@ -82,6 +104,9 @@ public class AluguelService {
     //TODO inserir cartao de credito ou outro metodo de pagamento
     //TODO opcao de confirmar o pagamento e finalizar o processo de aluguel
     //TODO apos confirmar pagamento, mostrar com todos os detalhes do aluguel, informacoes de contato e fatura
+
+    //QUAL CLASS?
     //TODO sistema deve marcar o veiculo como reservado e bloquear as datas de aluguel
-    //TODO cliente pode acessar seus alugueis confrimados e detalhes futuros atraves da conta
-    //discriminate value
+    //FAZER PERCORRER TODO O BANCO DE DADOS PARA VER SE O VEICULO ESTA EM USO
+    //FAZER PERCORRER PARA VER DATAS QUE O VEICULO N ESTA DISPONIVEL
+    //TODO cliente pode acessar seus alugueis confirmados e detalhes futuros atraves da conta > class cliente MOSTRAR CADASTRO, ALUGUEL E CARRO
