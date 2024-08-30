@@ -25,9 +25,15 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
-        User user = userService.findByEmail(email);
-        if (user != null && user.getPassword().equals(password)) {
-            return ResponseEntity.ok("Login successful");
+        try {
+            User user = entityManager.createQuery("SELECT u FROM User u WHERE u.email = :email", User.class)
+                                     .setParameter("email", email)
+                                     .getSingleResult();
+            if (user != null && user.getPassword().equals(password)) {
+                return ResponseEntity.ok("Login successful");
+            }
+        } catch (Exception e) {
+            // Handle case where no result is found
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
     }
@@ -48,5 +54,9 @@ public class UserController {
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.findAllUsers();
         return ResponseEntity.ok(users);
+    }
+
+    public User getUserById(Long userId) {
+        return entityManager.find(User.class, userId);
     }
 }
