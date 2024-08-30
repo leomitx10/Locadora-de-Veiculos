@@ -86,27 +86,3 @@ public class AluguelService {
         }
     }
 }
-    //OK TODO selecionar periodo aluguel inicio e termino > crud feito
-    //OK TODO crud apolice seguro
-
-    //CARRINHO
-    //TODO adicionar veiculo ao carrinho de aluguel > criar associação veiculo(veiculo precisa de crud)
-    // aluguel relacao de 1 p 1
-    //TODO exibir resumo carrinho aluguel > exibir resumo aluguel e veiculo
-    //TODO cliente revisar carrinho e alterar > fazer crud(modificar)
-    //TODO mostrar um print na tela de confirmação com detalhes da reserva > mostrar informações (dados inseridos)
-    //class pagamento
-    //TODO apos revisar carrinho, confirmar reserva e efetivar aluguel
-    //TODO pagina de resumo da reserva com detalhes
-    //TODO infromacoes: veiculo selecionado, datas, custo total e termos do aluguel
-    //TODO revisar e concordar com os termos e condicoes antes de prosseguir
-    //TODO apos concordar com os termos e condições, escolher metodo de pagamento
-    //TODO inserir cartao de credito ou outro metodo de pagamento
-    //TODO opcao de confirmar o pagamento e finalizar o processo de aluguel
-    //TODO apos confirmar pagamento, mostrar com todos os detalhes do aluguel, informacoes de contato e fatura
-
-    //QUAL CLASS?
-    //TODO sistema deve marcar o veiculo como reservado e bloquear as datas de aluguel
-    //FAZER PERCORRER TODO O BANCO DE DADOS PARA VER SE O VEICULO ESTA EM USO
-    //FAZER PERCORRER PARA VER DATAS QUE O VEICULO N ESTA DISPONIVEL
-    //TODO cliente pode acessar seus alugueis confirmados e detalhes futuros atraves da conta > class cliente MOSTRAR CADASTRO, ALUGUEL E CARRO

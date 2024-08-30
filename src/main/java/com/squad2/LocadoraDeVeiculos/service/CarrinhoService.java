@@ -64,18 +64,20 @@ public class CarrinhoService {
     public String adicionarAluguelAoCarrinho(Long carrinhoId, Aluguel aluguel) {
         Carrinho carrinho = carrinhoRepository.findById(carrinhoId).orElse(null);
         if (carrinho != null) {
-            carrinho.getAlugueis().add(aluguel);
+            carrinho.setAluguel(aluguel);
             carrinhoRepository.save(carrinho);
             return "Aluguel adicionado ao carrinho.";
         } else {
             return "Carrinho não encontrado.";
         }
     }
+
     public String removerAluguelDoCarrinho(Long carrinhoId, Long aluguelId) {
         Carrinho carrinho = carrinhoRepository.findById(carrinhoId).orElse(null);
         if (carrinho != null) {
             Aluguel aluguel = aluguelRepository.findById(aluguelId).orElse(null);
-            if (aluguel != null && carrinho.getAlugueis().remove(aluguel)) {
+            if (aluguel != null && aluguel.equals(carrinho.getAluguel()))  {
+                carrinho.setAluguel(null);
                 carrinhoRepository.save(carrinho);
                 return "Aluguel removido do carrinho.";
             } else {
@@ -90,8 +92,3 @@ public class CarrinhoService {
         return carrinhoRepository.findById(carrinhoId).orElse(null);
     }
 }
-//CARRINHO
-//CHECK TODO adicionar veiculo ao carrinho de aluguel > criar associação veiculo(veiculo precisa de crud)
-//CHECK TODO exibir resumo carrinho aluguel > exibir resumo aluguel e veiculo
-//CHECK TODO cliente revisar carrinho e alterar > fazer crud(modificar)
-//CHECK TODO mostrar um print na tela de confirmação com detalhes da reserva > mostrar informações (dados inseridos)

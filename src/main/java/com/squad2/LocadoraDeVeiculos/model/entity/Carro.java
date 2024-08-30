@@ -42,8 +42,3 @@ public class Carro {
     @JsonIgnore
     private Carrinho carrinho;
 }
-//TODO mostrar veiculos disponiveis(fabricante, modelo, categoria, acessorios, preço por dia
-//TODO  mostrar veiculos em lista
-//TODO filtro
-//TODO mostrar informações com especificações tecnicas
-//TODO ir para aluguel

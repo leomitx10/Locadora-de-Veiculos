@@ -48,5 +48,3 @@ public class AcessorioService {
                 .executeUpdate();
     }
 }
-
-//testar class toda

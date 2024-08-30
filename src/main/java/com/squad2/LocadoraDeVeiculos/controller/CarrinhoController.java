@@ -38,7 +38,7 @@ public class CarrinhoController {
         return ResponseEntity.ok(resposta);
     }
 
-    @PtMapping("/{carrinhoId}/alugueis")
+    @PostMapping("/{carrinhoId}/alugueis")
     public ResponseEntity<String> adicionarAluguel(@PathVariable Long carrinhoId, @RequestBody Aluguel aluguel) {
         String resposta = carrinhoService.adicionarAluguelAoCarrinho(carrinhoId, aluguel);
         return ResponseEntity.ok(resposta);
@@ -65,7 +65,7 @@ public class CarrinhoController {
         Carrinho carrinho = carrinhoRepository.findById(carrinhoId).orElseThrow(() -> new RuntimeException("Carrinho não encontrado"));
 
         carrinho.setCarros(carrinhoAtualizado.getCarros());
-        carrinho.setAlugueis(carrinhoAtualizado.getAlugueis());
+        carrinho.setAluguel(carrinhoAtualizado.getAluguel());
         Carrinho carrinhoSalvo = carrinhoRepository.save(carrinho);
         return ResponseEntity.ok(carrinhoSalvo);
     }
@@ -77,13 +77,12 @@ POST
 
 adicionar carro
 http://localhost:8080/carrinho/carrinhoId/carros
-PUT
-{
-    "id": 1,
-    "placa": "ABC1234",
-    "chassi": "1234567890",
-    "cor": "Preto",
-    "valorDiaria": 100.00
+POST
+   {
+    "placa": "XYZ1234",
+    "chassi": "1122334455",
+    "cor": "Azul",
+    "valorDiaria": 120.00
 }
 
 verificar carrinho
@@ -92,5 +91,12 @@ GET
 
 adicionar aluguel
 http://localhost:8080/carrinho/carrinhoId/alugueis
-PUT
+POST
+
+{
+    "dataPedido": "2024-08-15",
+    "dataEntrega": "2024-08-20",
+    "dataDevolucao": "2024-08-25",
+    "valorTotal": 550.00
+}
  */
