@@ -6,15 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cf87562c-7c8c-4c48-95ff-ba85b008e00d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarrinhoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarrinhoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carrinho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carrinho.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carro.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Pagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Pagamento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AcessorioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AcessorioService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AluguelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AluguelService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/CarrinhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/CarrinhoService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/PagamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/PagamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,12 +30,12 @@
     &quot;assignee&quot;: &quot;Maria-Eduarda-s&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://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@github.com/alsoares086/Locadora_Veiculos.git&quot;,
-    &quot;accountId&quot;: &quot;2bfde9e1-8fde-4bad-b034-486c602acf81&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "git@github.com:leomitx10/Locadora-de-Veiculos.git",
+    "accountId": "2bfde9e1-8fde-4bad-b034-486c602acf81"
   }
-}</component>
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -76,9 +68,9 @@
     "Application.LocadoraDeVeiculosApplication.executor": "Run",
     "Application.Project.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "inicio-projeto",
+    "git-widget-placeholder": "aluguel__apolice",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/maria/OneDrive/Área de Trabalho/Locadora - Falta testar",
+    "last_opened_file_path": "C:/Users/maria/OneDrive/Área de Trabalho/Locadora - grupo/Locadora-de-Veiculos",
     "settings.editor.selected.configurable": "configurable.group.tools"
   }
 }]]></component>
