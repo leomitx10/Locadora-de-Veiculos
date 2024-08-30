@@ -34,6 +34,10 @@ public class Aluguel {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+    
+    @ManyToOne
+    @JoinColumn(name = "apolice_id", nullable = false)
+    private ApoliceSeguro apolice;
 
     public Integer getId() {
         return id;
@@ -91,7 +95,15 @@ public class Aluguel {
         this.user = user;
     }
 
-    @Override
+    public ApoliceSeguro getApolice() {
+		return apolice;
+	}
+
+	public void setApolice(ApoliceSeguro apolice) {
+		this.apolice = apolice;
+	}
+
+	@Override
     public String toString() {
         return "Aluguel [id=" + id + ", dataPedido=" + dataPedido + ", dataEntrega=" + dataEntrega +
                ", dataDevolucao=" + dataDevolucao + ", valorTotal=" + valorTotal + 
