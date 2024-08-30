@@ -1,46 +1,49 @@
 package in.bushansirgur.springboot.crudapi.dao;
 
 import java.util.List;
+
 import javax.persistence.EntityManager;
+
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import in.bushansirgur.springboot.crudapi.model.Carro;
+
+import in.bushansirgur.springboot.crudapi.model.Aluguel;
 
 @Repository
-public class CarroDAOImpl implements CarroDAO {
-    
+public class AluguelDAOimpl implements AluguelDAO { 
+
     @Autowired
     private EntityManager entityManager;
     
     @Override
-    public List<Carro> get() {
+    public List<Aluguel> get() {
         Session currentSession = entityManager.unwrap(Session.class);
-        Query<Carro> query = currentSession.createQuery("from Carro", Carro.class);
-        List<Carro> list = query.getResultList();
+        Query<Aluguel> query = currentSession.createQuery("from Aluguel", Aluguel.class); 
+        List<Aluguel> list = query.getResultList();
         return list;
     }
 
     @Override
-    public Carro get(int id) {
+    public Aluguel get(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Carro carroObj = currentSession.get(Carro.class, id);
-        return carroObj;
+        Aluguel aluguelObj = currentSession.get(Aluguel.class, id); 
+        return aluguelObj;
     }
 
     @Override
-    public void save(Carro carro) {
+    public void save(Aluguel aluguel) {
         Session currentSession = entityManager.unwrap(Session.class);
-        currentSession.saveOrUpdate(carro);
+        currentSession.saveOrUpdate(aluguel); 
     }
 
     @Override
     public void delete(int id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Carro carro = currentSession.get(Carro.class, id);
-        if (carro != null) {
-            currentSession.delete(carro);
+        Aluguel aluguelObj = currentSession.get(Aluguel.class, id); 
+        if (aluguelObj != null) {
+            currentSession.delete(aluguelObj);
         }
     }
 }

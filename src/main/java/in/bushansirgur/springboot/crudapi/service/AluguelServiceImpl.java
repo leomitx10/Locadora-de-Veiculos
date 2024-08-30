@@ -11,7 +11,6 @@ import in.bushansirgur.springboot.crudapi.model.Aluguel;
 
 @Service
 public class AluguelServiceImpl implements AluguelService {
-
     @Autowired
     private AluguelDAO aluguelDAO;
 

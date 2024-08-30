@@ -27,7 +27,12 @@ public class Carro {
     @Column(nullable = false)
     private BigDecimal valorDiaria;
     
-    
+    @JsonIgnore
+    @OneToMany(mappedBy = "carro", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Aluguel> alugueis;
+
+    @OneToMany(mappedBy = "carro", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Acessorio> acessorios;
 
     public Long getId() {
         return id;
@@ -69,7 +74,13 @@ public class Carro {
         this.valorDiaria = valorDiaria;
     }
 
+    public List<Aluguel> getAlugueis() {
+        return alugueis;
+    }
 
+    public void setAlugueis(List<Aluguel> alugueis) {
+        this.alugueis = alugueis;
+    }
 
     @Override
     public String toString() {
