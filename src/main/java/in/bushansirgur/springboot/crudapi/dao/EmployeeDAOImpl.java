@@ -2,16 +2,13 @@ package in.bushansirgur.springboot.crudapi.dao;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-
-
 import in.bushansirgur.springboot.crudapi.model.Pessoa;
+import jakarta.persistence.EntityManager;
 
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {

@@ -1,13 +1,15 @@
 package in.bushansirgur.springboot.crudapi.dao;
 
 import java.util.List;
-import javax.persistence.EntityManager;
+
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 import in.bushansirgur.springboot.crudapi.model.Motorista;
+import jakarta.persistence.EntityManager;
 
 @Repository
 public class MotoristaDAOImpl implements MotoristaDAO {

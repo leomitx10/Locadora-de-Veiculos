@@ -1,8 +1,8 @@
 package in.bushansirgur.springboot.crudapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Column;
-import javax.persistence.Table;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Column;
+import jakarta.persistence.Table;
 
 @Entity
 public class Funcionario extends Pessoa {
