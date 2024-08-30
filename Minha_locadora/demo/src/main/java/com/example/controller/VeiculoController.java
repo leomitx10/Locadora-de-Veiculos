@@ -1,7 +1,10 @@
-package com.example.demo;
+package com.example.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import com.example.demo.Veiculo;
+import com.example.service.VeiculoService;
 
 import java.util.List;
 
@@ -26,6 +29,4 @@ public class VeiculoController {
     public Veiculo buscarVeiculo(@PathVariable Long id) {
         return veiculoService.buscarVeiculoPorId(id);
     }
-
-    // Endpoint para adicionar ao carrinho, etc.
 }

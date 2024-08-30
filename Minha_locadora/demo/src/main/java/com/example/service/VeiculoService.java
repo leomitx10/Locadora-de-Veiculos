@@ -1,7 +1,10 @@
-package com.example.demo;
+package com.example.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.example.demo.Veiculo;
+import com.example.demo.VeiculoRepository;
 
 import java.util.List;
 
@@ -24,8 +27,6 @@ public class VeiculoService {
     }
 
     public Veiculo salvar(Veiculo veiculo) {
-        return veiculoRepository.save(veiculo);  // Usar save aqui
+        return veiculoRepository.save(veiculo);
     }
-
-    // Outros métodos conforme necessário
 }

@@ -20,8 +20,10 @@ public class Veiculo {
     private String imagem;
     private String descricao;
     private Boolean disponivel;
+    private Boolean reservado = false;
 
     // Getters e Setters
+
     public Long getId() {
         return id;
     }
@@ -93,10 +95,6 @@ public class Veiculo {
     public void setDisponivel(Boolean disponivel) {
         this.disponivel = disponivel;
     }
-
-    private Boolean reservado = false; // Indica se o veículo foi reservado
-
-    // Getters e Setters...
 
     public Boolean getReservado() {
         return reservado;
