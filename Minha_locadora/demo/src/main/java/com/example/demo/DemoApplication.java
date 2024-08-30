@@ -8,7 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @ComponentScan(basePackages = 
 {"com.example.demo", "com.example.service", 
-		"com.example.controller","com.example.dao"})
+		"com.example.controller","com.example.dao","com.example.repository"})
 public class DemoApplication {
 
     public static void main(String[] args) {
