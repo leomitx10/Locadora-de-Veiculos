@@ -5,9 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.HashSet;
-import java.util.Set;
-
 
 @Getter
 @Setter
@@ -19,10 +16,8 @@ public class Acessorio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String descricao;
 
-    @ManyToMany(mappedBy = "acessorios")
-    private Set<Carro> carros = new HashSet<>();
 }

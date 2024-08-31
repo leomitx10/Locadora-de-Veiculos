@@ -23,7 +23,7 @@ public class AluguelController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<List<Aluguel>> listar() {
         List<Aluguel> alugueis = aluguelService.listar();
         return ResponseEntity.ok(alugueis);
@@ -42,18 +42,43 @@ public class AluguelController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @PostMapping("/reset-id")
-    public ResponseEntity<String> resetarIdAluguel(){
-        aluguelService.resetarIdAluguel();
-        return ResponseEntity.ok("Sequência de ID resetada para 1.");
+    @PostMapping("/{aluguelId}/apolices/{apoliceId}")
+    public ResponseEntity<String> associarApoliceAoAluguel(@PathVariable Long aluguelId, @PathVariable Long apoliceId) {
+        String mensagem = aluguelService.associarApoliceAoAluguel(aluguelId, apoliceId);
+        return ResponseEntity.ok(mensagem);
+    }
+
+    @DeleteMapping("/{aluguelId}/apolices")
+    public ResponseEntity<String> desassociarApoliceDoAluguel(@PathVariable Long aluguelId) {
+        String mensagem = aluguelService.desassociarApoliceDoAluguel(aluguelId);
+        return ResponseEntity.ok(mensagem);
     }
 }
 
 /*CRUD
+
+POST
 http://localhost:8080/alugueis
 {
   "dataPedido": "2024-08-01",
   "dataEntrega": "2024-08-05",
   "dataDevolucao": "2024-08-10"
   }
+
+GET
+http://localhost:8080/alugueis/{id}
+
+PUT
+http://localhost:8080/alugueis/{id}
+
+DELETE
+http://localhost:8080/alugueis/{id}
+
+associar apolice
+POST
+http://localhost:8080/alugueis/{aluguelId}/apolices/{apoliceId}
+
+desassocioar apolice
+DELETE
+http://localhost:8080/alugueis/{aluguelId}/apolices
  */

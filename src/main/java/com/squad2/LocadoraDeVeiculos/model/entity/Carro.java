@@ -1,6 +1,5 @@
 package com.squad2.LocadoraDeVeiculos.model.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,8 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
+
 
 
 @NoArgsConstructor
@@ -22,7 +21,7 @@ public class Carro {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String placa;
     private String chassi;
@@ -35,10 +34,6 @@ public class Carro {
             joinColumns = @JoinColumn(name = "carro_id"),
             inverseJoinColumns = @JoinColumn(name = "acessorio_id")
     )
-    private Set<Acessorio> acessorios = new HashSet<>();
+    private List<Acessorio> acessorios;
 
-    @ManyToOne
-    @JoinColumn(name = "carrinho_id")
-    @JsonIgnore
-    private Carrinho carrinho;
 }

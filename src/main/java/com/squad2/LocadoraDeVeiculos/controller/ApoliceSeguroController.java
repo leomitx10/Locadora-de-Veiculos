@@ -22,7 +22,7 @@ public class ApoliceSeguroController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<List<ApoliceSeguro>> listar() {
         List<ApoliceSeguro> apolice = apoliceSeguroService.listar();
         return ResponseEntity.ok(apolice);
@@ -40,14 +40,10 @@ public class ApoliceSeguroController {
         String mensagem = apoliceSeguroService.deletar(id);
         return ResponseEntity.ok(mensagem);
     }
-
-    @PostMapping("/reset-id")
-    public ResponseEntity<String> resetarIdApoliceSeguro(){
-        apoliceSeguroService.resetarIdApoliceSeguro();
-        return ResponseEntity.ok("Sequência de ID resetada para 1.");
-    }
 }
 /*CRUD
+
+POST
 http://localhost:8080/alugueis/apolice
 {
   "valorFranquia": 300.00,
@@ -55,4 +51,13 @@ http://localhost:8080/alugueis/apolice
   "protecaoCausasNaturais": false,
   "protecaoRoubo": false
 }
+
+GET
+http://localhost:8080/alugueL/apolice/{id}
+
+PUT
+http://localhost:8080/alugueL/apolice/{id}
+
+DELETE
+http://localhost:8080/alugueL/apolice/{id}
  */

@@ -16,10 +16,12 @@ public class Carrinho{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "carrinho_id")
     private List<Carro> carros;
 
-    @OneToOne(mappedBy = "carrinho", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "aluguel_id")
     private Aluguel aluguel;
 
 }

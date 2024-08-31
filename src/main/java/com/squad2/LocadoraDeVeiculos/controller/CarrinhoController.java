@@ -26,9 +26,9 @@ public class CarrinhoController {
         return ResponseEntity.ok(novoCarrinho);
     }
 
-    @PostMapping("/{carrinhoId}/carros")
-    public ResponseEntity<String> adicionarCarro(@PathVariable Long carrinhoId, @RequestBody Carro carro) {
-        String resposta = carrinhoService.adicionarCarroAoCarrinho(carrinhoId, carro);
+    @PostMapping("/{carrinhoId}/carros/{carroId}")
+    public ResponseEntity<String> adicionarCarro(@PathVariable Long carrinhoId, @PathVariable Long carroId) {
+        String resposta = carrinhoService.adicionarCarroAoCarrinho(carrinhoId, carroId);
         return ResponseEntity.ok(resposta);
     }
 
@@ -38,11 +38,12 @@ public class CarrinhoController {
         return ResponseEntity.ok(resposta);
     }
 
-    @PostMapping("/{carrinhoId}/alugueis")
-    public ResponseEntity<String> adicionarAluguel(@PathVariable Long carrinhoId, @RequestBody Aluguel aluguel) {
-        String resposta = carrinhoService.adicionarAluguelAoCarrinho(carrinhoId, aluguel);
+    @PostMapping("/{carrinhoId}/alugueis/{aluguelId}")
+    public ResponseEntity<String> adicionarAluguel(@PathVariable Long carrinhoId, @PathVariable Long aluguelId) {
+        String resposta = carrinhoService.adicionarAluguelAoCarrinho(carrinhoId, aluguelId);
         return ResponseEntity.ok(resposta);
     }
+
 
     @DeleteMapping("/{carrinhoId}/alugueis/{aluguelId}")
     public ResponseEntity<String> removerAluguel(@PathVariable Long carrinhoId, @PathVariable Long aluguelId) {
@@ -69,6 +70,16 @@ public class CarrinhoController {
         Carrinho carrinhoSalvo = carrinhoRepository.save(carrinho);
         return ResponseEntity.ok(carrinhoSalvo);
     }
+
+    @GetMapping("/{carrinhoId}/detalhes")
+    public ResponseEntity<Carrinho> obterCarrinhoComDetalhes(@PathVariable Long carrinhoId) {
+        Carrinho carrinho = carrinhoService.obterCarrinhoComDetalhes(carrinhoId);
+        if (carrinho != null) {
+            return ResponseEntity.ok(carrinho);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
 /*CRUD
 criar carrinho
@@ -76,27 +87,23 @@ http://localhost:8080/carrinho
 POST
 
 adicionar carro
-http://localhost:8080/carrinho/carrinhoId/carros
+http://localhost:8080/carrinho/carrinhoId/carros/{carroId}
 POST
-   {
-    "placa": "XYZ1234",
-    "chassi": "1122334455",
-    "cor": "Azul",
-    "valorDiaria": 120.00
-}
 
-verificar carrinho
-http://localhost:8080/carrinho/carrinhoId
-GET
+remover carro
+DELETE
+http://localhost:8080/carrinho/{carrinhoId}/carros/{carroId}
 
 adicionar aluguel
-http://localhost:8080/carrinho/carrinhoId/alugueis
+http://localhost:8080/carrinho/carrinhoId/alugueis/{aluguelId}
 POST
 
-{
-    "dataPedido": "2024-08-15",
-    "dataEntrega": "2024-08-20",
-    "dataDevolucao": "2024-08-25",
-    "valorTotal": 550.00
-}
+
+remover aluguel
+DELETE
+http://localhost:8080/carrinho/{carrinhoId}/alugueis/{aluguelId}
+
+verificar carrinho
+http://localhost:8080/carrinho/{carrinhoId}/detalhes
+GET
  */

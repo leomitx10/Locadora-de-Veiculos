@@ -23,7 +23,7 @@ public class CarroController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<List<Carro>> listar() {
         List<Carro> carros = carroService.listar();
         return ResponseEntity.ok(carros);
@@ -42,14 +42,34 @@ public class CarroController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @PostMapping("/reset-id")
-    public ResponseEntity<String> resetarIdCarro(){
-        carroService.resetarIdCarro();
-        return ResponseEntity.ok("Sequência de ID resetada para 1.");
+    @PostMapping("/{carroId}/acessorios/{acessorioId}")
+    public ResponseEntity<String> associarAcessorioAoCarro(
+            @PathVariable Long carroId,
+            @PathVariable Long acessorioId) {
+        String mensagem = carroService.associarAcessorioAoCarro(carroId, acessorioId);
+        return ResponseEntity.ok(mensagem);
     }
 
+    @DeleteMapping("/{carroId}/acessorios/{acessorioId}")
+    public ResponseEntity<String> desassociarAcessorioDoCarro(
+            @PathVariable Long carroId,
+            @PathVariable Long acessorioId) {
+        String mensagem = carroService.desassociarAcessorioDoCarro(carroId, acessorioId);
+        return ResponseEntity.ok(mensagem);
+    }
+
+    @GetMapping("/{carroId}/acessorios")
+    public ResponseEntity<Carro> obterCarroComAcessorios(@PathVariable Long carroId) {
+        Carro carro = carroService.obterCarroComAcessorios(carroId);
+        if (carro != null) {
+            return ResponseEntity.ok(carro);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }
 /*CRUD
+POST
 http://localhost:8080/carros
 {
     "placa": "ABC1234",
@@ -57,4 +77,25 @@ http://localhost:8080/carros
     "cor": "Preto",
     "valorDiaria": 150.00
 }
+GET
+http://localhost:8080/carros/{id}
+
+PUT
+http://localhost:8080/carros/{id}
+
+DELETE
+http://localhost:8080/carros/{id}
+
+adicionar acessorio ao carro
+POST
+http://localhost:8080/carros/{carroId}/acessorios/{acessorioId}
+
+desassociar acessorio de carro
+DELETE
+http://localhost:8080/carros/{carroId}/acessorios/{acessorioId}
+
+carro com acessório
+GET
+http://localhost:8080/carros/{carroId}/acessorios
+
  */

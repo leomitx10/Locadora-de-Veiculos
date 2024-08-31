@@ -6,9 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="cf87562c-7c8c-4c48-95ff-ba85b008e00d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AcessorioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AcessorioController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AluguelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AluguelController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/ApoliceSeguroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/ApoliceSeguroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarrinhoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarrinhoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarroController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/PagamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/PagamentoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Acessorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Acessorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/ApoliceSeguro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/ApoliceSeguro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carrinho.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carrinho.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Carro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Pagamento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Pagamento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AcessorioService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AcessorioService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AluguelService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/AluguelService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/ApoliceSeguroService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/ApoliceSeguroService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/CarrinhoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/CarrinhoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/CarroService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/CarroService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/PagamentoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/service/PagamentoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,8 +114,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.LocadoraDeVeiculosApplication" />
       <item itemvalue="Application.Project" />
+      <item itemvalue="Application.LocadoraDeVeiculosApplication" />
     </list>
     <recent_temporary>
       <list>

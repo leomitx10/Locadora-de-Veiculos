@@ -25,6 +25,4 @@ public class ApoliceSeguro {
     private Boolean protecaoCausasNaturais;
     private Boolean protecaoRoubo;
 
-    @OneToOne(mappedBy = "apoliceSeguro")
-    private Aluguel aluguel;
 }

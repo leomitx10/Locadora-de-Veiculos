@@ -21,7 +21,7 @@ public class AcessorioController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @GetMapping
+    @GetMapping("/{id}")
     public ResponseEntity<List<Acessorio>> listar() {
         List<Acessorio> acessorios = acessorioService.listar();
         return ResponseEntity.ok(acessorios);
@@ -42,8 +42,19 @@ public class AcessorioController {
 }
 
 /*CRUD
+
+POST
 http://localhost:8080/acessorios
 {
-    "descricao": "navegador GPS"
+   "descricao": "navegador GPS"
 }
+GET
+http://localhost:8080/acessorios/{id}
+
+PUT
+http://localhost:8080/acessorios/{id}
+
+DELETE
+http://localhost:8080/acessorios/{id}
+
  */

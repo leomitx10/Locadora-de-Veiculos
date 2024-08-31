@@ -27,14 +27,7 @@ public class Aluguel {
     private BigDecimal valorTotal;
 
     @OneToOne
-    @JoinColumn(name = "carro_id")
-    private Carro carro;
-
-    @OneToOne
     @JoinColumn(name = "apolice_id")
     private ApoliceSeguro apoliceSeguro;
 
-    @OneToOne
-    @JoinColumn(name = "carrinho_id")
-    private Carrinho carrinho;
 }
