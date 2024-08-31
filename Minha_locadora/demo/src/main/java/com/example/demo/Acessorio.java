@@ -13,10 +13,7 @@ public class Acessorio {
     @Column(nullable = false)
     private String descricao;
 
-    @ManyToOne
-    @JoinColumn(name = "carro_id") 
-    private Carro carro; 
-
+    // Getters and Setters
     public Long getId() {
         return id;
     }
@@ -33,20 +30,11 @@ public class Acessorio {
         this.descricao = descricao;
     }
 
-    public Carro getCarro() {
-        return carro;
-    }
-
-    public void setCarro(Carro carro) {
-        this.carro = carro;
-    }
-
     @Override
     public String toString() {
         return "Acessorio{" +
                 "id=" + id +
                 ", descricao='" + descricao + '\'' +
-                ", carro=" + (carro != null ? carro.getId() : "Nenhum") +
                 '}';
     }
 }

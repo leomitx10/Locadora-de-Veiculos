@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.math.BigDecimal;
+import java.util.List;
 import jakarta.persistence.*;
 
 @Entity
@@ -26,6 +27,10 @@ public class Carro {
     @ManyToOne
     @JoinColumn(name = "modelo_carro_id", nullable = false)
     private ModeloCarro modeloCarro;
+
+    @OneToMany
+    @JoinColumn(name = "carro_id")
+    private List<Acessorio> acessorios;
 
     // Getters and Setters
     public Long getId() {
@@ -76,6 +81,14 @@ public class Carro {
         this.modeloCarro = modeloCarro;
     }
 
+    public List<Acessorio> getAcessorios() {
+        return acessorios;
+    }
+
+    public void setAcessorios(List<Acessorio> acessorios) {
+        this.acessorios = acessorios;
+    }
+
     @Override
     public String toString() {
         return "Carro{" +
@@ -85,6 +98,7 @@ public class Carro {
                 ", cor='" + cor + '\'' +
                 ", valorDiaria=" + valorDiaria +
                 ", modeloCarro=" + modeloCarro.getDescricao() +
+                ", acessorios=" + acessorios +
                 '}';
     }
 }
