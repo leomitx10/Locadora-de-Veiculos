@@ -1,25 +1,29 @@
 package in.bushansirgur.springboot.crudapi.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Funcionario extends Pessoa {
     
     private String matricula;
 
-	public String getMatricula() {
-		return matricula;
-	}
+	@ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
 
+	/*
 	@Override
 	public String toString() {
 		return "Funcionario [matricula=" + matricula + "]";
-	}
+	}*/
     
 }
