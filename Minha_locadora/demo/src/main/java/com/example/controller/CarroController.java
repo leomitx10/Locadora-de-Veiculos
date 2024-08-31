@@ -52,4 +52,10 @@ public class CarroController {
     public List<Carro> getByCategoria(@PathVariable Categoria categoria) {
         return carroService.getByCategoria(categoria);
     }
+    
+    @GetMapping("/carro/acessorio/{acessorio}")
+    public List<Carro> getByAcessorio(@PathVariable String acessorio) {
+        return carroService.getByAcessorio(acessorio);
+    }
+
 }

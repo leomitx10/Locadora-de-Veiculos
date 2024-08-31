@@ -13,7 +13,6 @@ public class Acessorio {
     @Column(nullable = false)
     private String descricao;
 
-    // Getters and Setters
     public Long getId() {
         return id;
     }

@@ -47,4 +47,11 @@ public class CarroServiceImpl implements CarroService {
     public List<Carro> getByCategoria(Categoria categoria) {
         return carroDAO.getByCategoria(categoria);
     }
+    
+    @Transactional
+    @Override
+    public List<Carro> getByAcessorio(String acessorio) {
+        return carroDAO.getByAcessorio(acessorio);
+    }
+
 }

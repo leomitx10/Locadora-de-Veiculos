@@ -17,4 +17,6 @@ public interface CarroDAO {
     void delete(Long id); 
     
     List<Carro> getByCategoria(Categoria categoria);
+
+    List<Carro> getByAcessorio(String acessorio);
 }

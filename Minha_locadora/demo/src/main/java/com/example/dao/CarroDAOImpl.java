@@ -59,4 +59,14 @@ public class CarroDAOImpl implements CarroDAO {
         return query.getResultList();
     }
     
+    @Override
+    public List<Carro> getByAcessorio(String acessorio) {
+        TypedQuery<Carro> query = entityManager.createQuery(
+            "SELECT c FROM Carro c JOIN c.acessorios a WHERE a.descricao = :acessorio", Carro.class
+        );
+        query.setParameter("acessorio", acessorio);
+        return query.getResultList();
+    }
+
+    
 }
