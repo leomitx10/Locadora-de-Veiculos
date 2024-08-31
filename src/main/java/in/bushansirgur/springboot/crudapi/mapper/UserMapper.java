@@ -15,4 +15,16 @@ public class UserMapper {
         dto.setPassword(user.getPassword());
         return dto;        
     }
+
+    public static User toEntity(UserDTO dto) {
+        if (dto == null) {
+            return null;
+        }
+
+        User user = new User();
+        user.setId(dto.getId());
+        user.setEmail(dto.getEmail());
+        user.setPassword(dto.getPassword());
+        return user;
+    }
 }

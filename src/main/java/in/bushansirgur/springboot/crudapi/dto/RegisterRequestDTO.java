@@ -1,12 +1,13 @@
-package in.bushansirgur.springboot.crudapi.model;
+package in.bushansirgur.springboot.crudapi.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class RegisterRequest {
-
+@AllArgsConstructor
+public class RegisterRequestDTO {
     private String email;
     private String password;
 }

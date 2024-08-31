@@ -6,11 +6,13 @@ import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(callSuper = true)
 public class Funcionario extends Pessoa {
     
     private String matricula;
@@ -19,11 +21,5 @@ public class Funcionario extends Pessoa {
     @JoinColumn(name = "user_id")
     private User user;
 
-
-	/*
-	@Override
-	public String toString() {
-		return "Funcionario [matricula=" + matricula + "]";
-	}*/
-    
+   
 }

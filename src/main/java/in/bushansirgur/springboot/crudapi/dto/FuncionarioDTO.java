@@ -11,6 +11,4 @@ import lombok.AllArgsConstructor;
 public class FuncionarioDTO extends PessoaDTO{
 
     private String matricula;
-    private String userEmail;
-
 }

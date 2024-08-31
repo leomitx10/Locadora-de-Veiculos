@@ -8,7 +8,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 @Entity
 @Table(name = "apolice_seguro")
 public class ApoliceSeguro {
@@ -29,43 +37,4 @@ public class ApoliceSeguro {
     @Column(name = "protecao_roubo", nullable = false)
     private Boolean protecaoRoubo;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public BigDecimal getValorFranquia() {
-        return valorFranquia;
-    }
-
-    public void setValorFranquia(BigDecimal valorFranquia) {
-        this.valorFranquia = valorFranquia;
-    }
-
-    public Boolean getProtecaoTerceiro() {
-        return protecaoTerceiro;
-    }
-
-    public void setProtecaoTerceiro(Boolean protecaoTerceiro) {
-        this.protecaoTerceiro = protecaoTerceiro;
-    }
-
-    public Boolean getProtecaoCausasNaturais() {
-        return protecaoCausasNaturais;
-    }
-
-    public void setProtecaoCausasNaturais(Boolean protecaoCausasNaturais) {
-        this.protecaoCausasNaturais = protecaoCausasNaturais;
-    }
-
-    public Boolean getProtecaoRoubo() {
-        return protecaoRoubo;
-    }
-
-    public void setProtecaoRoubo(Boolean protecaoRoubo) {
-        this.protecaoRoubo = protecaoRoubo;
-    }
 }
