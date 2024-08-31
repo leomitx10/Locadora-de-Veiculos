@@ -1,16 +1,17 @@
 package in.bushansirgur.springboot.crudapi.service;
 
 import java.util.List;
-import in.bushansirgur.springboot.crudapi.model.Aluguel;
+
+import in.bushansirgur.springboot.crudapi.dto.AluguelDTO;
 
 public interface AluguelService {
-    List<Aluguel> get();
+    List<AluguelDTO> get();
     
-    Aluguel get(int id);
+    AluguelDTO get(int id);
     
-    void save(Aluguel aluguel);
+    void save(AluguelDTO aluguelDTO);
     
     void delete(int id);
     
-    List<Aluguel> getByUserId(Long userId); 
+    List<AluguelDTO> getByUserId(Long userId); 
 }

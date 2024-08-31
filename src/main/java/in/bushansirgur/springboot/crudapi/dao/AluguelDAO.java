@@ -13,5 +13,5 @@ public interface AluguelDAO {
     
     void delete(int id);
     
-    List<Aluguel> getByUserId(Long userId);  // Novo método
+    List<Aluguel> getByUserId(Long userId);
 }

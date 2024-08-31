@@ -3,9 +3,16 @@ package in.bushansirgur.springboot.crudapi.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import in.bushansirgur.springboot.crudapi.model.Aluguel;
+import in.bushansirgur.springboot.crudapi.dto.AluguelDTO;
 import in.bushansirgur.springboot.crudapi.service.AluguelService;
 
 @RestController
@@ -16,19 +23,19 @@ public class AluguelController {
     private AluguelService aluguelService;
 
     @PostMapping("/aluguel")
-    public Aluguel save(@RequestBody Aluguel aluguel) {
+    public AluguelDTO save(@RequestBody AluguelDTO aluguel) {
         aluguelService.save(aluguel);
         return aluguel;
     }
 
     @GetMapping("/aluguel")
-    public List<Aluguel> get() {
+    public List<AluguelDTO> get() {
         return aluguelService.get();
     }
 
     @GetMapping("/aluguel/{id}")
-    public Aluguel get(@PathVariable int id) {
-        Aluguel aluguel = aluguelService.get(id);
+    public AluguelDTO get(@PathVariable int id) {
+        AluguelDTO aluguel = aluguelService.get(id);
         if (aluguel == null) {
             throw new RuntimeException("Aluguel não encontrado para o ID: " + id);
         }
@@ -36,12 +43,12 @@ public class AluguelController {
     }
 
     @GetMapping("/aluguel/user/{userId}")
-    public List<Aluguel> getByUserId(@PathVariable Long userId) {
+    public List<AluguelDTO> getByUserId(@PathVariable Long userId) {
         return aluguelService.getByUserId(userId);
     }
 
     @PutMapping("/aluguel")
-    public Aluguel update(@RequestBody Aluguel aluguel) {
+    public AluguelDTO update(@RequestBody AluguelDTO aluguel) {
         aluguelService.save(aluguel);
         return aluguel;
     }

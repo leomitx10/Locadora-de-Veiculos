@@ -12,45 +12,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import in.bushansirgur.springboot.crudapi.model.Pessoa;
+import in.bushansirgur.springboot.crudapi.dto.PessoaDTO;
 import in.bushansirgur.springboot.crudapi.service.EmployeeService;
 
 @RestController
 @RequestMapping("/api")
 public class PessoaController {
 
-	@Autowired
-	private EmployeeService employeeService;
-	
-	@PostMapping("/employee")
-	public Pessoa save(@RequestBody Pessoa employeeObj) {
-		employeeService.save(employeeObj);
-		return employeeObj;
-	}
-	
-	@GetMapping("/employee")
-	public List<Pessoa> get(){
-		return employeeService.get();
-	}
-	
-	@GetMapping("/employee/{id}")
-	public Pessoa get(@PathVariable int id) {
-		Pessoa employeeObj = employeeService.get(id);
-		if(employeeObj == null) {
-			throw new RuntimeException("Employee not found for the Id:"+id);
-		}
-		return employeeObj;
-	}
-	
-	@PutMapping("/employee")
-	public Pessoa update(@RequestBody Pessoa employeeObj) {
-		employeeService.save(employeeObj);
-		return employeeObj;
-	}
-	
-	@DeleteMapping("/employee/{id}")
-	public String delete(@PathVariable int id) {
-		employeeService.delete(id);
-		return "Employee has been deleted with id:"+id;
-	}
+    @Autowired
+    private EmployeeService employeeService;
+    
+    @PostMapping("/employee")
+    public PessoaDTO save(@RequestBody PessoaDTO pessoaDTO) {
+        employeeService.save(pessoaDTO);
+        return pessoaDTO;
+    }
+    
+    @GetMapping("/employee")
+    public List<PessoaDTO> get() {
+        return employeeService.getAll();
+    }
+    
+    @GetMapping("/employee/{id}")
+    public PessoaDTO get(@PathVariable int id) {
+        PessoaDTO pessoaDTO = employeeService.get(id);
+        if (pessoaDTO == null) {
+            throw new RuntimeException("Employee not found for the Id:" + id);
+        }
+        return pessoaDTO;
+    }
+    
+    @PutMapping("/employee")
+    public PessoaDTO update(@RequestBody PessoaDTO pessoaDTO) {
+        employeeService.save(pessoaDTO);
+        return pessoaDTO;
+    }
+    
+    @DeleteMapping("/employee/{id}")
+    public String delete(@PathVariable int id) {
+        employeeService.delete(id);
+        return "Employee has been deleted with id:" + id;
+    }
 }

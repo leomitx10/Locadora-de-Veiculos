@@ -2,15 +2,15 @@ package in.bushansirgur.springboot.crudapi.service;
 
 import java.util.List;
 
-import in.bushansirgur.springboot.crudapi.model.Carro;
+import in.bushansirgur.springboot.crudapi.dto.CarroDTO;
 
 public interface CarroService {
 	
-	List<Carro> get();
+	List<CarroDTO> get();
 	
-	Carro get(int id);
+	CarroDTO get(int id);
 	
-	void save(Carro carro);
+	void save(CarroDTO carroDTO);
 	
 	void delete(int id); 
 	

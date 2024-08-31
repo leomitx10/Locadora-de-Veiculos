@@ -13,10 +13,5 @@ public class PessoaDTO {
     private String cpf;
     private Date dataNascimento;
     private Sexo sexo;
-
-    public void setId(Integer id) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    
+   
 }

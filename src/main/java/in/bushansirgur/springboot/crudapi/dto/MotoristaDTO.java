@@ -8,6 +8,6 @@ import lombok.AllArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MotoristaDTO extends PessoaDTO {
-
+    private UserDTO user;
     private String numeroCNH;
 }

@@ -5,23 +5,25 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import in.bushansirgur.springboot.crudapi.dto.UserDTO;
 import in.bushansirgur.springboot.crudapi.model.RegisterRequest;
-import in.bushansirgur.springboot.crudapi.model.User;
-import in.bushansirgur.springboot.crudapi.service.UserRepository;
+import in.bushansirgur.springboot.crudapi.mapper.UserMapper;
+import in.bushansirgur.springboot.crudapi.service.UserService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api")
 public class UserController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestParam String email, @RequestParam String password) {
-        User user = userRepository.findByEmail(email);
-        if (user != null && user.getPassword().equals(password)) {
+        UserDTO userDTO = userService.getUserByEmail(email);
+        if (userDTO != null && userDTO.getPassword().equals(password)) {
             return ResponseEntity.ok("Login successful");
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
@@ -29,22 +31,23 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<String> register(@RequestBody RegisterRequest request) {
-        if (userRepository.findByEmail(request.getEmail()) != null) {
+        UserDTO existingUser = userService.getUserByEmail(request.getEmail());
+        if (existingUser != null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists");
         }
-        User newUser = new User();
-        newUser.setEmail(request.getEmail());
-        newUser.setPassword(request.getPassword());
-        userRepository.save(newUser);
+        UserDTO newUserDTO = new UserDTO();
+        newUserDTO.setEmail(request.getEmail());
+        newUserDTO.setPassword(request.getPassword());
+        userService.save(UserMapper.toEntity(newUserDTO));
         return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
     }
 
     @GetMapping("/users")
-    public ResponseEntity<List<User>> getAllUsers() {
-        List<User> users = userRepository.findAll();
+    public ResponseEntity<List<UserDTO>> getAllUsers() {
+        List<UserDTO> users = userService.getAllUsers()
+                                         .stream()
+                                         .map(UserMapper::toDTO)
+                                         .collect(Collectors.toList());
         return ResponseEntity.ok(users);
     }
 }
-
-
-

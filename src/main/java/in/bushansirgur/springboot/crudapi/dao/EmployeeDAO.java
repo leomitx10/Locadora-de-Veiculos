@@ -6,11 +6,11 @@ import in.bushansirgur.springboot.crudapi.model.Pessoa;
 
 public interface EmployeeDAO {
 	
-	List<Pessoa> get();
+	List<Pessoa> getAll();
 	
 	Pessoa get(int id);
 	
-	void save(Pessoa employee);
+	void save(Pessoa pessoa);
 	
-	void delete(int id); 
+	void delete(int id);
 }

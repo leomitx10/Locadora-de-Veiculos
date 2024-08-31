@@ -4,11 +4,12 @@ import in.bushansirgur.springboot.crudapi.dto.FuncionarioDTO;
 import in.bushansirgur.springboot.crudapi.model.Funcionario;
 
 public class FuncionarioMapper {
+
     public static FuncionarioDTO toDTO(Funcionario funcionario) {
         if (funcionario == null) {
             return null;
         }
-    
+
         FuncionarioDTO dto = new FuncionarioDTO();
         dto.setId(funcionario.getId());
         dto.setNome(funcionario.getNome());
@@ -16,6 +17,8 @@ public class FuncionarioMapper {
         dto.setDataNascimento(funcionario.getDataNascimento());
         dto.setSexo(funcionario.getSexo());
         dto.setMatricula(funcionario.getMatricula());
+        dto.setUser(UserMapper.toDTO(funcionario.getUser()));
+
         return dto;
     }
 
@@ -31,7 +34,8 @@ public class FuncionarioMapper {
         funcionario.setDataNascimento(dto.getDataNascimento());
         funcionario.setSexo(dto.getSexo());
         funcionario.setMatricula(dto.getMatricula());
-    
+        funcionario.setUser(UserMapper.toEntity(dto.getUser()));
+
         return funcionario;
     }
 }

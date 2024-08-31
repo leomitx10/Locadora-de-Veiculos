@@ -9,7 +9,7 @@ public interface FuncionarioDAO {
     
     Funcionario get(int id);
     
-    void save(Funcionario funcionario);
+    Funcionario  save(Funcionario funcionario);
     
     void delete(int id); 
 }

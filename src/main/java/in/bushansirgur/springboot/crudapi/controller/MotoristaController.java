@@ -2,53 +2,46 @@ package in.bushansirgur.springboot.crudapi.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import in.bushansirgur.springboot.crudapi.model.Motorista;
+import org.springframework.web.bind.annotation.*;
+import in.bushansirgur.springboot.crudapi.dto.MotoristaDTO;
 import in.bushansirgur.springboot.crudapi.service.MotoristaService;
 import in.bushansirgur.springboot.crudapi.service.UserService;
-import in.bushansirgur.springboot.crudapi.model.User;
+import in.bushansirgur.springboot.crudapi.dto.UserDTO;
 
 @RestController
 @RequestMapping("/api")
 public class MotoristaController {
-	
-	@Autowired
+
+    @Autowired
     private UserService userService;
-	
+
     @Autowired
     private MotoristaService motoristaService;
 
     @PostMapping("/motorista")
-    public Motorista save(@RequestBody Motorista motoristaObj) {
-        motoristaService.save(motoristaObj);
-        return motoristaObj;
+    public MotoristaDTO save(@RequestBody MotoristaDTO motoristaDTO) {
+        motoristaService.save(motoristaDTO);
+        return motoristaDTO;
     }
 
     @GetMapping("/motorista")
-    public List<Motorista> get() {
+    public List<MotoristaDTO> get() {
         return motoristaService.get();
     }
 
     @GetMapping("/motorista/{id}")
-    public Motorista get(@PathVariable int id) {
-        Motorista motoristaObj = motoristaService.get(id);
-        if (motoristaObj == null) {
+    public MotoristaDTO get(@PathVariable int id) {
+        MotoristaDTO motoristaDTO = motoristaService.get(id);
+        if (motoristaDTO == null) {
             throw new RuntimeException("Motorista not found for the Id:" + id);
         }
-        return motoristaObj;
+        return motoristaDTO;
     }
 
     @PutMapping("/motorista")
-    public Motorista update(@RequestBody Motorista motoristaObj) {
-        motoristaService.save(motoristaObj);
-        return motoristaObj;
+    public MotoristaDTO update(@RequestBody MotoristaDTO motoristaDTO) {
+        motoristaService.save(motoristaDTO);
+        return motoristaDTO;
     }
 
     @DeleteMapping("/motorista/{id}")
@@ -58,19 +51,18 @@ public class MotoristaController {
     }
 
     @GetMapping("/users/{userId}/motoristas")
-    public List<Motorista> getMotoristasByUser(@PathVariable Long userId) { 
+    public List<MotoristaDTO> getMotoristasByUser(@PathVariable Long userId) {
         return motoristaService.getMotoristasByUserId(userId);
     }
-    
+
     @PostMapping("/users/{userId}/motoristas")
-    public Motorista addMotoristaToUser(@PathVariable Long userId, @RequestBody Motorista motorista) {
-        User user = userService.getUserById(userId);
-        if (user == null) {
+    public MotoristaDTO addMotoristaToUser(@PathVariable Long userId, @RequestBody MotoristaDTO motoristaDTO) {
+        UserDTO userDTO = userService.getUserById(userId);
+        if (userDTO == null) {
             throw new RuntimeException("User not found for the Id:" + userId);
         }
-        motorista.setUser(user);
-        motoristaService.save(motorista);
-        return motorista;
+        motoristaDTO.setUser(userDTO);
+        motoristaService.save(motoristaDTO);
+        return motoristaDTO;
     }
 }
-
