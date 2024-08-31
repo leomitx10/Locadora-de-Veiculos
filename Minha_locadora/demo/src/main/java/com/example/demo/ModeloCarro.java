@@ -24,7 +24,7 @@ public class ModeloCarro {
     private List<Carro> carros;
     
     @Enumerated(EnumType.STRING)
-    @Column
+    @Column(nullable = false)
     private Categoria categoria;
 
     // Getters and Setters
@@ -60,12 +60,19 @@ public class ModeloCarro {
         this.fabricante = fabricante;
     }
 
-    @Override
-    public String toString() {
-        return "ModeloCarro{" +
-                "id=" + id +
-                ", descricao='" + descricao + '\'' +
-                ", fabricante=" + fabricante.getNome() +
-                '}';
-    }
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+	@Override
+	public String toString() {
+		return "ModeloCarro [id=" + id + ", descricao=" + descricao + ", fabricante=" + fabricante + ", carros="
+				+ carros + ", categoria=" + categoria + "]";
+	}
+
+    
 }

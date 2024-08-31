@@ -38,6 +38,7 @@ public class ModeloCarroController {
         return new ResponseEntity<>(modeloCarro, HttpStatus.OK);
     }
 
+
     @PutMapping("/modelo-carro")
     public ResponseEntity<ModeloCarro> update(@RequestBody ModeloCarro modeloCarro) {
         modeloCarroService.save(modeloCarro);
