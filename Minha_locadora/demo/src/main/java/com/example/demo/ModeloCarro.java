@@ -22,6 +22,10 @@ public class ModeloCarro {
     @OneToMany(mappedBy = "modeloCarro", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<Carro> carros;
+    
+    @Enumerated(EnumType.STRING)
+    @Column
+    private Categoria categoria;
 
     // Getters and Setters
     public Long getId() {
