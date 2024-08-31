@@ -8,7 +8,13 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.Carro;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.Query;
 import jakarta.persistence.TypedQuery;
+import jakarta.websocket.Session;
+
+
+
+import com.example.demo.Categoria;
 
 @Repository
 public class CarroDAOImpl implements CarroDAO {
@@ -43,4 +49,14 @@ public class CarroDAOImpl implements CarroDAO {
             entityManager.remove(carro);
         }
     }
+    
+    @Override
+    public List<Carro> getByCategoria(Categoria categoria) {
+        TypedQuery<Carro> query = entityManager.createQuery(
+            "SELECT c FROM Carro c WHERE c.modeloCarro.categoria = :categoria", Carro.class
+        );
+        query.setParameter("categoria", categoria);
+        return query.getResultList();
+    }
+    
 }

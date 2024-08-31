@@ -3,6 +3,7 @@ package com.example.service;
 import java.util.List;
 
 import com.example.demo.Carro;
+import com.example.demo.Categoria;
 
 public interface CarroService {
 	
@@ -13,5 +14,7 @@ public interface CarroService {
 	void save(Carro carro);
 	
 	void delete(Long id); 
+	
+	List<Carro> getByCategoria(Categoria categoria);
 	
 }

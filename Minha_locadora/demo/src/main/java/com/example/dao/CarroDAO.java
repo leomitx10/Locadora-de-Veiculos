@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.example.demo.Carro;
 
+import com.example.demo.Categoria;
+
 public interface CarroDAO {
     
     List<Carro> get();
@@ -14,4 +16,5 @@ public interface CarroDAO {
     
     void delete(Long id); 
     
+    List<Carro> getByCategoria(Categoria categoria);
 }

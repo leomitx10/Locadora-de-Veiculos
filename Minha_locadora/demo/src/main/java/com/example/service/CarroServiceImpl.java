@@ -10,6 +10,8 @@ import com.example.demo.Carro;
 
 import jakarta.transaction.Transactional;
 
+import com.example.demo.Categoria;
+
 @Service
 public class CarroServiceImpl implements CarroService {
 
@@ -40,4 +42,9 @@ public class CarroServiceImpl implements CarroService {
         carroDAO.delete(id);
     }
     
+    @Transactional
+    @Override
+    public List<Carro> getByCategoria(Categoria categoria) {
+        return carroDAO.getByCategoria(categoria);
+    }
 }

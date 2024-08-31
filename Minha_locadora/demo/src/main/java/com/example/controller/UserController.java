@@ -47,7 +47,7 @@ public class UserController {
                                                 .setParameter("email", request.getEmail())
                                                 .getResultList();
         if (!existingUsers.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Email already exists");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O e-mail já existe");
         }
 
         User newUser = new User();
@@ -55,7 +55,7 @@ public class UserController {
         newUser.setPassword(request.getPassword());
         entityManager.persist(newUser);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("User created successfully");
+        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario criado com sucesso");
     }
 
     @GetMapping("/users")

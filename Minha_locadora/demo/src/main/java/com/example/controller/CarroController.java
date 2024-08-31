@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.Carro;
+import com.example.demo.Categoria;
 import com.example.service.CarroService;
 
 @RestController
@@ -45,5 +46,10 @@ public class CarroController {
     public String delete(@PathVariable Long id) {
         carroService.delete(id);
         return "Carro has been deleted with id: " + id;
+    }
+    
+    @GetMapping("/carro/categoria/{categoria}")
+    public List<Carro> getByCategoria(@PathVariable Categoria categoria) {
+        return carroService.getByCategoria(categoria);
     }
 }
