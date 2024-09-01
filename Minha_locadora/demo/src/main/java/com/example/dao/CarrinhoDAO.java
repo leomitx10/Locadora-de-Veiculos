@@ -1,7 +1,6 @@
 package com.example.dao;
 
 import java.util.List;
-
 import com.example.demo.Carrinho;
 
 public interface CarrinhoDAO {

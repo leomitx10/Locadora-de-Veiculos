@@ -13,6 +13,10 @@ public class Carrinho {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aluguel_id", referencedColumnName = "id")
     private Aluguel aluguel;
+    
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 
     public Long getId() {
         return id;
@@ -28,5 +32,13 @@ public class Carrinho {
 
     public void setAluguel(Aluguel aluguel) {
         this.aluguel = aluguel;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

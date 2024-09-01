@@ -1,13 +1,13 @@
 package com.example.dao;
 
 import java.util.List;
-import jakarta.persistence.EntityManager;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.Carrinho;
+import jakarta.persistence.EntityManager;
 
 @Repository
 public class CarrinhoDAOImpl implements CarrinhoDAO {
@@ -19,8 +19,7 @@ public class CarrinhoDAOImpl implements CarrinhoDAO {
     public List<Carrinho> get() {
         Session currentSession = entityManager.unwrap(Session.class);
         Query<Carrinho> query = currentSession.createQuery("from Carrinho", Carrinho.class);
-        List<Carrinho> list = query.getResultList();
-        return list;
+        return query.getResultList();
     }
 
     @Override
@@ -43,6 +42,4 @@ public class CarrinhoDAOImpl implements CarrinhoDAO {
             currentSession.delete(carrinho);
         }
     }
-    
-    
 }

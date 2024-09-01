@@ -1,7 +1,6 @@
 package com.example.controller;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,18 +13,18 @@ public class CarrinhoController {
 
     @Autowired
     private CarrinhoService carrinhoService;
-    
+
     @PostMapping("/carrinhos")
     public Carrinho save(@RequestBody Carrinho carrinho) {
         carrinhoService.save(carrinho);
         return carrinho;
     }
-    
+
     @GetMapping("/carrinhos")
     public List<Carrinho> get() {
         return carrinhoService.get();
     }
-    
+
     @GetMapping("/carrinhos/{id}")
     public Carrinho get(@PathVariable Long id) {
         Carrinho carrinho = carrinhoService.get(id);
@@ -34,7 +33,12 @@ public class CarrinhoController {
         }
         return carrinho;
     }
-    
+
+    @GetMapping("/carrinhos/user/{userId}") // Novo endpoint para buscar carrinhos por user_id
+    public List<Carrinho> getByUserId(@PathVariable Long userId) {
+        return carrinhoService.getByUserId(userId);
+    }
+
     @PutMapping("/carrinhos/{id}")
     public Carrinho update(@PathVariable Long id, @RequestBody Carrinho carrinho) {
         Carrinho existingCarrinho = carrinhoService.get(id);
@@ -45,7 +49,7 @@ public class CarrinhoController {
         carrinhoService.save(carrinho);
         return carrinho;
     }
-    
+
     @DeleteMapping("/carrinhos/{id}")
     public String delete(@PathVariable Long id) {
         Carrinho carrinho = carrinhoService.get(id);

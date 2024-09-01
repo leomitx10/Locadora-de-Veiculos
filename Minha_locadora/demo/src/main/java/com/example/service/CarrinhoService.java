@@ -1,6 +1,7 @@
 package com.example.service;
 
 import java.util.List;
+
 import com.example.demo.Carrinho;
 
 public interface CarrinhoService {
@@ -9,7 +10,9 @@ public interface CarrinhoService {
 
     Carrinho get(Long id);
 
+    List<Carrinho> getByUserId(Long userId); // Novo método
+
     void save(Carrinho carrinho);
 
-    void delete(Long id); 
+    void delete(Long id);
 }
