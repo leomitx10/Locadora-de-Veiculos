@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "carrinho")
@@ -10,13 +11,14 @@ public class Carrinho {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aluguel_id", referencedColumnName = "id")
-    private Aluguel aluguel;
-    
-    @OneToOne
+    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Aluguel> alugueis;
+
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
+
+    // Getters and setters
 
     public Long getId() {
         return id;
@@ -26,12 +28,12 @@ public class Carrinho {
         this.id = id;
     }
 
-    public Aluguel getAluguel() {
-        return aluguel;
+    public List<Aluguel> getAlugueis() {
+        return alugueis;
     }
 
-    public void setAluguel(Aluguel aluguel) {
-        this.aluguel = aluguel;
+    public void setAlugueis(List<Aluguel> alugueis) {
+        this.alugueis = alugueis;
     }
 
     public User getUser() {

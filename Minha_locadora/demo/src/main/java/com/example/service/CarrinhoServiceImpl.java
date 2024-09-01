@@ -54,24 +54,19 @@ public class CarrinhoServiceImpl implements CarrinhoService {
     
     @Override
     @Transactional
-    public void addAluguelToCarrinho(Long userId, Long aluguelId) {
-        String queryStr = "FROM Carrinho WHERE user.id = :userId AND aluguel IS NULL";
-        Carrinho carrinho = entityManager.createQuery(queryStr, Carrinho.class)
-                                          .setParameter("userId", userId)
-                                          .setMaxResults(1)
-                                          .getSingleResult();
-
-        if (carrinho != null) {
-            Aluguel aluguel = entityManager.find(Aluguel.class, aluguelId);
-            if (aluguel != null) {
-                carrinho.setAluguel(aluguel);
-                entityManager.merge(carrinho);
-            } else {
-                throw new RuntimeException("Aluguel não encontrado para o Id: " + aluguelId);
-            }
-        } else {
-            throw new RuntimeException("Carrinho não encontrado para o UserId: " + userId + " ou já possui um Aluguel associado.");
+    public void addAluguelToCarrinho(Long carrinhoId, Long aluguelId) {
+        Carrinho carrinho = entityManager.find(Carrinho.class, carrinhoId);
+        if (carrinho == null) {
+            throw new RuntimeException("Carrinho não encontrado para o Id: " + carrinhoId);
         }
+
+        Aluguel aluguel = entityManager.find(Aluguel.class, aluguelId);
+        if (aluguel == null) {
+            throw new RuntimeException("Aluguel não encontrado para o Id: " + aluguelId);
+        }
+
+        aluguel.setCarrinho(carrinho);
+        entityManager.merge(aluguel);
     }
 
 }
