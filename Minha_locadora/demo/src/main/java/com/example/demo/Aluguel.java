@@ -43,24 +43,6 @@ public class Aluguel {
     @JsonIgnore
     private Carrinho carrinho;
     
-    @PrePersist
-    @PreUpdate
-    private void calcularValorTotal() {
-        if (dataEntrega != null && dataDevolucao != null && carro != null && apolice != null) {
-            // Calcula a diferença em dias entre a data de entrega e a data de devolução
-            long diffInMillies = Math.abs(dataDevolucao.getTime() - dataEntrega.getTime());
-            long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-
-            // Calcula o valor total
-            BigDecimal valorDiaria = carro.getValorDiaria();
-            BigDecimal valorApolice = apolice.getValorFranquia();
-            BigDecimal valorTotalCalculado = valorDiaria.multiply(BigDecimal.valueOf(diffInDays)).add(valorApolice);
-
-            BigDecimal valorSubtracao = BigDecimal.valueOf(100L);
-            this.valorTotal = valorTotalCalculado.subtract(valorSubtracao);
-        }
-    }
-
     public Integer getId() {
         return id;
     }

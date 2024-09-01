@@ -1,6 +1,8 @@
 package com.example.service;
 
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,6 +32,18 @@ public class AluguelServiceImpl implements AluguelService {
     @Transactional
     @Override
     public void save(Aluguel aluguel) {
+        if (aluguel.getDataDevolucao() != null && aluguel.getDataEntrega() != null &&
+            aluguel.getCarro() != null && aluguel.getApolice() != null) {
+
+            long diffInMillis = aluguel.getDataDevolucao().getTime() - aluguel.getDataEntrega().getTime();
+            long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
+
+            BigDecimal valorDiaria = aluguel.getCarro().getValorDiaria();
+            BigDecimal valorFranquia = aluguel.getApolice().getValorFranquia();
+            BigDecimal valorTotal = valorDiaria.multiply(BigDecimal.valueOf(diffInDays)).add(valorFranquia);
+
+            aluguel.setValorTotal(valorTotal);
+        }
         aluguelDAO.save(aluguel);
     }
 
@@ -42,6 +56,6 @@ public class AluguelServiceImpl implements AluguelService {
     @Transactional
     @Override
     public List<Aluguel> getByUserId(Long userId) {
-        return aluguelDAO.getByUserId(userId);  // Implementação do novo método
+        return aluguelDAO.getByUserId(userId);
     }
 }
