@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.User;
+import com.example.demo.Carrinho;
 import com.example.demo.RegisterRequest;
 
 @RestController
@@ -50,12 +51,18 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("O e-mail já existe");
         }
 
+        // Criando um novo usuário
         User newUser = new User();
         newUser.setEmail(request.getEmail());
         newUser.setPassword(request.getPassword());
         entityManager.persist(newUser);
 
-        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario criado com sucesso");
+        // Criando um novo carrinho para o usuário
+        Carrinho newCarrinho = new Carrinho();
+        newCarrinho.setUser(newUser);
+        entityManager.persist(newCarrinho);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Usuario e carrinho criados com sucesso");
     }
 
     @GetMapping("/users")
