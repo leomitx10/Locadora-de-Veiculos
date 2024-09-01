@@ -1,11 +1,13 @@
 package com.squad2.LocadoraDeVeiculos.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
+@NoArgsConstructor
+@AllArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -16,12 +18,8 @@ public class Carrinho{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "carrinho_id")
-    private List<Carro> carros;
-
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aluguel_id")
+    @JoinColumn(name = "aluguel_id", referencedColumnName = "id")
     private Aluguel aluguel;
 
 }

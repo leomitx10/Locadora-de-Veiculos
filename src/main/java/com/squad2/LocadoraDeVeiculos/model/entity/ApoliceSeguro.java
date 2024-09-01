@@ -20,9 +20,13 @@ public class ApoliceSeguro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false)
     private BigDecimal valorFranquia;
+    @Column(nullable = false)
     private Boolean protecaoTerceiro;
+    @Column(nullable = false)
     private Boolean protecaoCausasNaturais;
+    @Column(nullable = false)
     private Boolean protecaoRoubo;
 
 }

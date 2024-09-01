@@ -1,46 +1,12 @@
 package com.squad2.LocadoraDeVeiculos.service;
 
-import com.squad2.LocadoraDeVeiculos.model.entity.ApoliceSeguro;
-import com.squad2.LocadoraDeVeiculos.repository.ApoliceSeguroRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+public interface ApoliceService {
 
-import java.math.BigDecimal;
-import java.util.List;
+    List<ApoliceSeguro> get();
 
-@Service
-public class ApoliceSeguroService {
+    ApoliceSeguro get(Long id);
 
-    @Autowired
-    private ApoliceSeguroRepository apoliceSeguroRepository;
+    void save(ApoliceSeguro apolice);
 
-
-    public String salvar(ApoliceSeguro apoliceSeguro){
-        BigDecimal valorFranquia = apoliceSeguro.getValorFranquia();
-        if (valorFranquia == null) {
-            return "o valor não pode ser nulo.";
-        }
-        apoliceSeguroRepository.save(apoliceSeguro);
-        return "Apolice seguro salvo.";
-    }
-
-    public List<ApoliceSeguro> listar(){return apoliceSeguroRepository.findAll();}
-
-    public String modificar(ApoliceSeguro apoliceSeguro){
-        BigDecimal valorFranquia = apoliceSeguro.getValorFranquia();
-        if (valorFranquia == null) {
-            return "o valor não pode ser nulo.";
-        }
-        apoliceSeguroRepository.save(apoliceSeguro);
-        return "Apolice seguro modificado.";
-    }
-
-    public String deletar(Long id){
-        apoliceSeguroRepository.deleteById(id);
-        return "Exclusão de apolice seguro realizada.";
-    }
-
-    public ApoliceSeguro getApoliceSeguro(Long id) {
-        return apoliceSeguroRepository.findById(id).orElse(null);
-    }
+    void delete(Long id);
 }

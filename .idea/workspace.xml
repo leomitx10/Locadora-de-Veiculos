@@ -7,10 +7,7 @@
     <list default="true" id="cf87562c-7c8c-4c48-95ff-ba85b008e00d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AcessorioController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AcessorioController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AluguelController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/AluguelController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/ApoliceSeguroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/ApoliceSeguroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarrinhoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarrinhoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarroController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/CarroController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/PagamentoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/controller/PagamentoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Acessorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Acessorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/squad2/LocadoraDeVeiculos/model/entity/Aluguel.java" afterDir="false" />
@@ -81,17 +78,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.LocadoraDeVeiculosApplication.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Project.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;aluguel__apolice&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/maria/OneDrive/Área de Trabalho/Locadora - grupo/Locadora-de-Veiculos&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.tools&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.LocadoraDeVeiculosApplication.executor": "Run",
+    "Application.Project.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "aluguel__apolice",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/maria/OneDrive/Área de Trabalho/Nova pasta/Locadora-de-Veiculos",
+    "settings.editor.selected.configurable": "configurable.group.tools"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Application.LocadoraDeVeiculosApplication">
     <configuration name="LocadoraDeVeiculosApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.squad2.LocadoraDeVeiculos.LocadoraDeVeiculosApplication" />

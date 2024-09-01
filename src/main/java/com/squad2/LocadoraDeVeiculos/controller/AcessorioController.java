@@ -3,58 +3,46 @@ package com.squad2.LocadoraDeVeiculos.controller;
 import com.squad2.LocadoraDeVeiculos.model.entity.Acessorio;
 import com.squad2.LocadoraDeVeiculos.service.AcessorioService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/acessorios")
+@RequestMapping("/api")
 public class AcessorioController {
 
     @Autowired
     private AcessorioService acessorioService;
 
-    @PostMapping
-    public ResponseEntity<String> salvar(@RequestBody Acessorio acessorio) {
-        String mensagem = acessorioService.salvar(acessorio);
-        return ResponseEntity.ok(mensagem);
+    @PostMapping("/acessorios")
+    public Acessorio save(@RequestBody Acessorio acessorio) {
+        acessorioService.save(acessorio);
+        return acessorio;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<Acessorio>> listar() {
-        List<Acessorio> acessorios = acessorioService.listar();
-        return ResponseEntity.ok(acessorios);
+    @GetMapping("/acessorios")
+    public List<Acessorio> get() {
+        return acessorioService.get();
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<String> modificar(@PathVariable Long id, @RequestBody Acessorio acessorio) {
-        acessorio.setId(id);
-        String mensagem = acessorioService.modificar(acessorio);
-        return ResponseEntity.ok(mensagem);
+    @GetMapping("/acessorios/{id}")
+    public Acessorio get(@PathVariable int id) {
+        Acessorio acessorio = acessorioService.get(id);
+        if (acessorio == null) {
+            throw new RuntimeException("Acessório não encontrado para o Id: " + id);
+        }
+        return acessorio;
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<String> deletar(@PathVariable Long id) {
-        String mensagem = acessorioService.deletar(id);
-        return ResponseEntity.ok(mensagem);
+    @PutMapping("/acessorios")
+    public Acessorio update(@RequestBody Acessorio acessorio) {
+        acessorioService.save(acessorio);
+        return acessorio;
+    }
+
+    @DeleteMapping("/acessorios/{id}")
+    public String delete(@PathVariable int id) {
+        acessorioService.delete(id);
+        return "Acessório deletado com sucesso, Id: " + id;
     }
 }
-
-/*CRUD
-
-POST
-http://localhost:8080/acessorios
-{
-   "descricao": "navegador GPS"
-}
-GET
-http://localhost:8080/acessorios/{id}
-
-PUT
-http://localhost:8080/acessorios/{id}
-
-DELETE
-http://localhost:8080/acessorios/{id}
-
- */

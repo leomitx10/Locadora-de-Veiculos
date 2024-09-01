@@ -1,16 +1,13 @@
 package com.squad2.LocadoraDeVeiculos.model.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 
-
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
@@ -28,12 +25,12 @@ public class Carro {
     private String cor;
     private BigDecimal valorDiaria;
 
-    @ManyToMany
-    @JoinTable(
-            name = "carro_acessorio",
-            joinColumns = @JoinColumn(name = "carro_id"),
-            inverseJoinColumns = @JoinColumn(name = "acessorio_id")
-    )
+    @ManyToOne
+    @JoinColumn(name = "modelo_carro_id", nullable = false)
+    private ModeloCarro modeloCarro;
+
+    @OneToMany
+    @JoinColumn(name = "carro_id")
     private List<Acessorio> acessorios;
 
 }
