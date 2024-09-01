@@ -30,10 +30,6 @@ public class Aluguel {
     @ManyToOne
     @JoinColumn(name = "carro_id", nullable = false)
     private Carro carro;
-
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
     
     @ManyToOne
     @JoinColumn(name = "apolice_id", nullable = false)
@@ -95,18 +91,12 @@ public class Aluguel {
         this.carro = carro;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
 	@Override
 	public String toString() {
 		return "Aluguel [id=" + id + ", dataPedido=" + dataPedido + ", dataEntrega=" + dataEntrega + ", dataDevolucao="
-				+ dataDevolucao + ", valorTotal=" + valorTotal + ", carro=" + carro + ", user=" + user + ", apolice="
+				+ dataDevolucao + ", valorTotal=" + valorTotal + ", carro=" + carro 
 				+ apolice + "]";
 	}
 }

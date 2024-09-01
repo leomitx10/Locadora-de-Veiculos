@@ -9,41 +9,50 @@ import com.example.demo.Carrinho;
 import com.example.service.CarrinhoService;
 
 @RestController
-@RequestMapping("/api/carrinho")
+@RequestMapping("/api")
 public class CarrinhoController {
 
     @Autowired
     private CarrinhoService carrinhoService;
-
-    @PostMapping
+    
+    @PostMapping("/carrinhos")
     public Carrinho save(@RequestBody Carrinho carrinho) {
         carrinhoService.save(carrinho);
         return carrinho;
     }
-
-    @GetMapping
-    public List<Carrinho> getAll() {
-        return carrinhoService.getAll();
+    
+    @GetMapping("/carrinhos")
+    public List<Carrinho> get() {
+        return carrinhoService.get();
     }
-
-    @GetMapping("/{id}")
-    public Carrinho getById(@PathVariable Long id) {
-        Carrinho carrinho = carrinhoService.getById(id);
+    
+    @GetMapping("/carrinhos/{id}")
+    public Carrinho get(@PathVariable Long id) {
+        Carrinho carrinho = carrinhoService.get(id);
         if (carrinho == null) {
-            throw new RuntimeException("Carrinho not found for the Id: " + id);
+            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
         }
         return carrinho;
     }
-
-    @PutMapping
-    public Carrinho update(@RequestBody Carrinho carrinho) {
+    
+    @PutMapping("/carrinhos/{id}")
+    public Carrinho update(@PathVariable Long id, @RequestBody Carrinho carrinho) {
+        Carrinho existingCarrinho = carrinhoService.get(id);
+        if (existingCarrinho == null) {
+            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
+        }
+        carrinho.setId(id);
         carrinhoService.save(carrinho);
         return carrinho;
     }
-
-    @DeleteMapping("/{id}")
+    
+    @DeleteMapping("/carrinhos/{id}")
     public String delete(@PathVariable Long id) {
+        Carrinho carrinho = carrinhoService.get(id);
+        if (carrinho == null) {
+            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
+        }
         carrinhoService.delete(id);
-        return "Carrinho has been deleted with id: " + id;
+        return "Carrinho deletado com sucesso, Id: " + id;
     }
 }

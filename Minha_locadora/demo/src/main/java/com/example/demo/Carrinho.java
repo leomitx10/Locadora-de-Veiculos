@@ -1,10 +1,6 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
 
 @Entity
 @Table(name = "carrinho")
@@ -14,21 +10,10 @@ public class Carrinho {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "aluguel_id", referencedColumnName = "id")
+    private Aluguel aluguel;
 
-    @OneToMany(mappedBy = "carrinho", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<ItemCarrinho> itens = new ArrayList<>();
-
-    @Column(nullable = false)
-    private BigDecimal valorTotal = BigDecimal.ZERO;
-
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCriacao;
-
-    // Getters e Setters
     public Long getId() {
         return id;
     }
@@ -37,35 +22,11 @@ public class Carrinho {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
+    public Aluguel getAluguel() {
+        return aluguel;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public List<ItemCarrinho> getItens() {
-        return itens;
-    }
-
-    public void setItens(List<ItemCarrinho> itens) {
-        this.itens = itens;
-    }
-
-    public BigDecimal getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(BigDecimal valorTotal) {
-        this.valorTotal = valorTotal;
-    }
-
-    public Date getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(Date dataCriacao) {
-        this.dataCriacao = dataCriacao;
+    public void setAluguel(Aluguel aluguel) {
+        this.aluguel = aluguel;
     }
 }
