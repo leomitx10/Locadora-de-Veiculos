@@ -3,6 +3,7 @@ package com.example.demo;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -15,7 +16,7 @@ public class Aluguel {
     private Integer id;
 
     @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.DATE)
     private Date dataPedido;
 
     @Column(nullable = false)
@@ -26,7 +27,7 @@ public class Aluguel {
     @Temporal(TemporalType.DATE)
     private Date dataDevolucao;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private BigDecimal valorTotal;
 
     @ManyToOne
@@ -41,8 +42,24 @@ public class Aluguel {
     @JoinColumn(name = "carrinho_id", nullable = true)
     @JsonIgnore
     private Carrinho carrinho;
+    
+    @PrePersist
+    @PreUpdate
+    private void calcularValorTotal() {
+        if (dataEntrega != null && dataDevolucao != null && carro != null && apolice != null) {
+            // Calcula a diferença em dias entre a data de entrega e a data de devolução
+            long diffInMillies = Math.abs(dataDevolucao.getTime() - dataEntrega.getTime());
+            long diffInDays = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
 
-    // Getters and setters
+            // Calcula o valor total
+            BigDecimal valorDiaria = carro.getValorDiaria();
+            BigDecimal valorApolice = apolice.getValorFranquia();
+            BigDecimal valorTotalCalculado = valorDiaria.multiply(BigDecimal.valueOf(diffInDays)).add(valorApolice);
+
+            BigDecimal valorSubtracao = BigDecimal.valueOf(100L);
+            this.valorTotal = valorTotalCalculado.subtract(valorSubtracao);
+        }
+    }
 
     public Integer getId() {
         return id;
