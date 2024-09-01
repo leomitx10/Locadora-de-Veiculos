@@ -12,4 +12,8 @@ public interface PagamentoService {
     void save(Pagamento pagamento);
 
     void delete(Long id);
+    
+    void confirmar(Long carroId);
+    
+    void confirmarPorCarrinhoId(Long carrinhoId);
 }

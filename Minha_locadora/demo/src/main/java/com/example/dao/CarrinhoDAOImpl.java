@@ -26,8 +26,7 @@ public class CarrinhoDAOImpl implements CarrinhoDAO {
     @Override
     public Carrinho get(Long id) {
         Session currentSession = entityManager.unwrap(Session.class);
-        Carrinho carrinhoObj = currentSession.get(Carrinho.class, id);
-        return carrinhoObj;
+        return currentSession.get(Carrinho.class, id);
     }
 
     @Override
@@ -44,4 +43,6 @@ public class CarrinhoDAOImpl implements CarrinhoDAO {
             currentSession.delete(carrinho);
         }
     }
+    
+    
 }

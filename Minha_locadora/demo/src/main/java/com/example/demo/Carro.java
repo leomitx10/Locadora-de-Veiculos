@@ -23,6 +23,9 @@ public class Carro {
 
     @Column(nullable = false)
     private BigDecimal valorDiaria;
+    
+    @Column(nullable = false)
+    private Boolean reservado = false;
 
     @ManyToOne
     @JoinColumn(name = "modelo_carro_id", nullable = false)
@@ -37,7 +40,15 @@ public class Carro {
         return id;
     }
 
-    public void setId(Long id) {
+    public Boolean getReservado() {
+		return reservado;
+	}
+
+	public void setReservado(Boolean reservado) {
+		this.reservado = reservado;
+	}
+
+	public void setId(Long id) {
         this.id = id;
     }
 
