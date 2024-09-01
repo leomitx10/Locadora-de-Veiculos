@@ -11,13 +11,16 @@ public interface CarrinhoService {
 
     Carrinho get(Long id);
 
-    List<Carrinho> getByUserId(Long userId); // Novo método
+    List<Carrinho> getByUserId(Long userId);
 
     void save(Carrinho carrinho);
 
     void delete(Long id);
     
-    void addAluguelToCarrinho(Long userId, Long aluguelId);
+    void addAluguelToCarrinho(Long carrinhoId, Long aluguelId);
 
     List<Aluguel> getAlugueisByCarrinhoId(Long carrinhoId);
+
+    // Novo método para reservar carros de aluguéis associados ao carrinho
+    void reservarCarrosDoCarrinho(Long carrinhoId);
 }

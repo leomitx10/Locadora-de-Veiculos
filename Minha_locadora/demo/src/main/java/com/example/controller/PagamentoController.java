@@ -46,15 +46,9 @@ public class PagamentoController {
         return "Pagamento has been deleted with id: " + id;
     }
     
-    @PostMapping("/confirmar/{carroId}")
-    public String confirmar(@PathVariable Long carroId) {
-        pagamentoService.confirmar(carroId);
-        return "Carro reservado com sucesso para o ID: " + carroId;
-    }
-    
-    @PostMapping("/confirmar-carrinho/{carrinhoId}")
-    public String confirmarPorCarrinhoId(@PathVariable Long carrinhoId) {
-        pagamentoService.confirmarPorCarrinhoId(carrinhoId);
-        return "Carro reservado com sucesso para o carrinho ID: " + carrinhoId;
+    @PostMapping("/confirmar/{carrinhoId}")
+    public String confirmar(@PathVariable Long carrinhoId) {
+        pagamentoService.reservarCarrosDoCarrinho(carrinhoId);
+        return "Carros reservados com sucesso para o Carrinho ID: " + carrinhoId;
     }
 }

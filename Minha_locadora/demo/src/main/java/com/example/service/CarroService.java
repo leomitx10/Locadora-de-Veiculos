@@ -18,5 +18,6 @@ public interface CarroService {
 	List<Carro> getByCategoria(Categoria categoria);
 	
 	List<Carro> getByAcessorio(String acessorio);
-
+	
+	void reservarCarro(Long id);
 }

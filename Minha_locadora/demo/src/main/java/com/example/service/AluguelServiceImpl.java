@@ -71,4 +71,21 @@ public class AluguelServiceImpl implements AluguelService {
     public List<Aluguel> getByUserId(Long userId) {
         return aluguelDAO.getByUserId(userId);
     }
+    
+    @Transactional
+    @Override
+    public void reservarCarroDoAluguel(int aluguelId) {
+        Aluguel aluguel = aluguelDAO.get(aluguelId);
+        if (aluguel != null) {
+            Carro carro = aluguel.getCarro();
+            if (carro != null) {
+                carro.setReservado(true);
+                carroDAO.save(carro);
+            } else {
+                throw new RuntimeException("Carro não encontrado para o aluguel com id: " + aluguelId);
+            }
+        } else {
+            throw new RuntimeException("Aluguel não encontrado com id: " + aluguelId);
+        }
+    }
 }

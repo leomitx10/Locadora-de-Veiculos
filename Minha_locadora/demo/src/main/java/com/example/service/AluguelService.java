@@ -13,4 +13,6 @@ public interface AluguelService {
     void delete(int id);
     
     List<Aluguel> getByUserId(Long userId); 
+    
+    void reservarCarroDoAluguel(int aluguelId);
 }

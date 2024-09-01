@@ -16,6 +16,9 @@ public class CarrinhoServiceImpl implements CarrinhoService {
     @Autowired
     private EntityManager entityManager;
 
+    @Autowired
+    private AluguelService aluguelService; // Injetar AluguelService
+
     @Override
     public List<Carrinho> get() {
         String queryStr = "FROM Carrinho";
@@ -28,7 +31,7 @@ public class CarrinhoServiceImpl implements CarrinhoService {
     }
 
     @Override
-    public List<Carrinho> getByUserId(Long userId) { // Implementação do novo método
+    public List<Carrinho> getByUserId(Long userId) {
         String queryStr = "FROM Carrinho WHERE user.id = :userId";
         return entityManager.createQuery(queryStr, Carrinho.class)
                             .setParameter("userId", userId)
@@ -77,4 +80,13 @@ public class CarrinhoServiceImpl implements CarrinhoService {
                             .getResultList();
     }
 
+    @Override
+    @Transactional
+    public void reservarCarrosDoCarrinho(Long carrinhoId) {
+        List<Aluguel> alugueis = getAlugueisByCarrinhoId(carrinhoId);
+        for (Aluguel aluguel : alugueis) {
+            // Usar o método reservarCarroDoAluguel do AluguelService
+            aluguelService.reservarCarroDoAluguel(aluguel.getId());
+        }
+    }
 }

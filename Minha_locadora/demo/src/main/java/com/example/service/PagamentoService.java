@@ -15,5 +15,6 @@ public interface PagamentoService {
     
     void confirmar(Long carroId);
     
-    void confirmarPorCarrinhoId(Long carrinhoId);
+    void reservarCarrosDoCarrinho(Long carrinhoId);
+    
 }

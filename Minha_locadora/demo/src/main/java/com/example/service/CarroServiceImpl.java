@@ -7,10 +7,9 @@ import org.springframework.stereotype.Service;
 
 import com.example.dao.CarroDAO;
 import com.example.demo.Carro;
+import com.example.demo.Categoria;
 
 import jakarta.transaction.Transactional;
-
-import com.example.demo.Categoria;
 
 @Service
 public class CarroServiceImpl implements CarroService {
@@ -54,4 +53,15 @@ public class CarroServiceImpl implements CarroService {
         return carroDAO.getByAcessorio(acessorio);
     }
 
+    @Transactional
+    @Override
+    public void reservarCarro(Long id) {
+        Carro carro = carroDAO.get(id);
+        if (carro != null) {
+            carro.setReservado(true);
+            carroDAO.save(carro);
+        } else {
+            throw new RuntimeException("Carro não encontrado com o id: " + id);
+        }
+    }
 }

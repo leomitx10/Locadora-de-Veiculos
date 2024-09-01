@@ -22,6 +22,9 @@ public class PagamentoServiceImpl implements PagamentoService {
     
     @Autowired
     private CarrinhoDAO carrinhoDAO;
+    
+    @Autowired
+    private CarrinhoService carrinhoService; // Injetar CarrinhoService
 
     @Transactional(readOnly = true)
     @Override
@@ -58,21 +61,11 @@ public class PagamentoServiceImpl implements PagamentoService {
             throw new RuntimeException("Carro not found for the Id: " + carroId);
         }
     }
-    
+
     @Transactional
     @Override
-    public void confirmarPorCarrinhoId(Long carrinhoId) {
-        Carrinho carrinho = carrinhoDAO.get(carrinhoId);
-        if (carrinho != null && carrinho.getAluguel() != null) {
-            Carro carro = carrinho.getAluguel().getCarro();
-            if (carro != null) {
-                carro.setReservado(true);
-                carroDAO.save(carro);
-            } else {
-                throw new RuntimeException("Carro not found in aluguel for Carrinho Id: " + carrinhoId);
-            }
-        } else {
-            throw new RuntimeException("Carrinho not found for the Id: " + carrinhoId);
-        }
+    public void reservarCarrosDoCarrinho(Long carrinhoId) {
+        // Usar o serviço CarrinhoService para reservar carros
+        carrinhoService.reservarCarrosDoCarrinho(carrinhoId);
     }
 }
