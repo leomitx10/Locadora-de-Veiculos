@@ -56,22 +56,22 @@ public class MotoristaController {
     @DeleteMapping("/motorista/{id}")
     public String delete(@PathVariable int id) {
         motoristaService.delete(id);
-        return "Motorista has been deleted with id:" + id;
+        return "Motorista deletado com o id = " + id;
     }
 
-    @GetMapping("/users/{userId}/motoristas")
+    @GetMapping("/user/motorista/{userId}")
     public List<Motorista> getMotoristasByUser(@PathVariable Long userId) {
         return motoristaService.getMotoristasByUserId(userId);
     }
 
-    @PostMapping("/users/{userId}/motoristas")
-    public Motorista addMotoristaToUser(@PathVariable Long userId, @RequestBody Motorista motorista) {
+    @PostMapping("/user/motorista/{userId}")
+    public String addMotoristaToUser(@PathVariable Long userId, @RequestBody Motorista motorista) {
         User user = userService.getUserById(userId);
         if (user == null) {
             throw new RuntimeException("User not found for the Id:" + userId);
         }
         motorista.setUser(user);
         motoristaService.save(motorista);
-        return motorista;
+        return "Motorista cadastrado com sucesso";
     }
 }

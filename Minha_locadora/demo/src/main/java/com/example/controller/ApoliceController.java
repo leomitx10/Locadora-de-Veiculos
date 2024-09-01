@@ -15,9 +15,9 @@ public class ApoliceController {
     private ApoliceService apoliceService;
 
     @PostMapping("/apolice")
-    public ApoliceSeguro save(@RequestBody ApoliceSeguro apolice) {
+    public String save(@RequestBody ApoliceSeguro apolice) {
         apoliceService.save(apolice);
-        return apolice;
+        return "Apolice cadastrada com sucesso";
     }
 
     @GetMapping("/apolice")

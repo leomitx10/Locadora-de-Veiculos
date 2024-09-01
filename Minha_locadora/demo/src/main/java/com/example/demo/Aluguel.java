@@ -28,7 +28,7 @@ public class Aluguel {
     private BigDecimal valorTotal;
 
     @ManyToOne
-    @JoinColumn(name = "carro_id", nullable = false)
+    @JoinColumn(name = "carro_id", nullable = false, unique = true)
     private Carro carro;
     
     @ManyToOne

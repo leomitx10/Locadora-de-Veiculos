@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -7,7 +8,8 @@ import jakarta.persistence.ManyToOne;
 @Entity
 public class Motorista extends Pessoa {
 
-    private String numeroCNH;
+	@Column(nullable = false, unique = true)
+	private String numeroCNH;
 
     @ManyToOne
     @JoinColumn(name = "user_id")

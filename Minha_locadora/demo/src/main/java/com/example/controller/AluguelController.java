@@ -16,9 +16,9 @@ public class AluguelController {
     private AluguelService aluguelService;
 
     @PostMapping("/aluguel")
-    public Aluguel save(@RequestBody Aluguel aluguel) {
+    public String save(@RequestBody Aluguel aluguel) {
         aluguelService.save(aluguel);
-        return aluguel;
+        return "Aluguel cadastrado com sucesso";
     }
 
     @GetMapping("/aluguel")

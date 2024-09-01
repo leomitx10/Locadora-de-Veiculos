@@ -32,7 +32,7 @@ public class Carro {
     private ModeloCarro modeloCarro;
 
     @OneToMany
-    @JoinColumn(name = "carro_id")
+    @JoinColumn(name = "acessorio_id",nullable = true)
     private List<Acessorio> acessorios;
 
     // Getters and Setters

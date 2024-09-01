@@ -25,7 +25,7 @@ public abstract class Pessoa {
     @Column
     private String nome;
     
-    @Column
+    @Column(nullable = false, unique = true)
     private String cpf;
     
     @Column
