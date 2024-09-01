@@ -15,4 +15,7 @@ public interface CarrinhoService {
     void save(Carrinho carrinho);
 
     void delete(Long id);
+    
+    void addAluguelToCarrinho(Long userId, Long aluguelId);
+
 }

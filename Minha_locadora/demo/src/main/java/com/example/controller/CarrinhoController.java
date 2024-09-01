@@ -59,4 +59,15 @@ public class CarrinhoController {
         carrinhoService.delete(id);
         return "Carrinho deletado com sucesso, Id: " + id;
     }
+    
+    @PostMapping("/carrinho/{userId}/aluguel/{aluguelId}")
+    public String addAluguelToCarrinho(@PathVariable Long userId, @PathVariable Long aluguelId) {
+        try {
+            carrinhoService.addAluguelToCarrinho(userId, aluguelId);
+            return "Aluguel adicionado ao carrinho com sucesso.";
+        } catch (RuntimeException e) {
+            return e.getMessage();
+        }
+    }
+
 }
