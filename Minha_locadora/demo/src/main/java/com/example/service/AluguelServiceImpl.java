@@ -10,12 +10,16 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.example.dao.AluguelDAO;
 import com.example.demo.Aluguel;
+import com.example.demo.ApoliceSeguro;
 
 @Service
 public class AluguelServiceImpl implements AluguelService {
 
     @Autowired
     private AluguelDAO aluguelDAO;
+
+    @Autowired
+    private ApoliceService apoliceService;  // Adicionado para obter informações da apólice
 
     @Transactional
     @Override
@@ -39,7 +43,11 @@ public class AluguelServiceImpl implements AluguelService {
             long diffInDays = TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS);
 
             BigDecimal valorDiaria = aluguel.getCarro().getValorDiaria();
-            BigDecimal valorFranquia = aluguel.getApolice().getValorFranquia();
+            
+            // Buscar a apólice do banco para obter o valor da franquia
+            ApoliceSeguro apolice = apoliceService.get(aluguel.getApolice().getId());
+            BigDecimal valorFranquia = apolice.getValorFranquia();
+            
             BigDecimal valorTotal = valorDiaria.multiply(BigDecimal.valueOf(diffInDays)).add(valorFranquia);
 
             aluguel.setValorTotal(valorTotal);
