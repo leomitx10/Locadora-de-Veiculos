@@ -2,6 +2,7 @@ package com.example.service;
 
 import java.util.List;
 
+import com.example.demo.Aluguel;
 import com.example.demo.Carrinho;
 
 public interface CarrinhoService {
@@ -18,4 +19,5 @@ public interface CarrinhoService {
     
     void addAluguelToCarrinho(Long userId, Long aluguelId);
 
+    List<Aluguel> getAlugueisByCarrinhoId(Long carrinhoId);
 }

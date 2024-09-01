@@ -68,5 +68,13 @@ public class CarrinhoServiceImpl implements CarrinhoService {
         aluguel.setCarrinho(carrinho);
         entityManager.merge(aluguel);
     }
+    
+    @Override
+    public List<Aluguel> getAlugueisByCarrinhoId(Long carrinhoId) {
+        String queryStr = "SELECT a FROM Aluguel a WHERE a.carrinho.id = :carrinhoId";
+        return entityManager.createQuery(queryStr, Aluguel.class)
+                            .setParameter("carrinhoId", carrinhoId)
+                            .getResultList();
+    }
 
 }

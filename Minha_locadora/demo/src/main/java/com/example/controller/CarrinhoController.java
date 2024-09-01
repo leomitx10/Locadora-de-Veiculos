@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import com.example.demo.Aluguel;
 import com.example.demo.Carrinho;
 import com.example.service.CarrinhoService;
 
@@ -34,9 +35,9 @@ public class CarrinhoController {
         return carrinho;
     }
 
-    @GetMapping("/carrinhos/user/{userId}") // Novo endpoint para buscar carrinhos por user_id
-    public List<Carrinho> getByUserId(@PathVariable Long userId) {
-        return carrinhoService.getByUserId(userId);
+    @GetMapping("/carrinho/{carrinhoId}")
+    public List<Aluguel> getAlugueisByCarrinhoId(@PathVariable Long carrinhoId) {
+        return carrinhoService.getAlugueisByCarrinhoId(carrinhoId);
     }
 
     @PutMapping("/carrinhos/{id}")
