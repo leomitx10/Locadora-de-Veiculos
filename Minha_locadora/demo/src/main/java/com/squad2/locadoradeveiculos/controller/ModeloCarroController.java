@@ -18,14 +18,17 @@ public class ModeloCarroController {
     private ModeloCarroService modeloCarroService;
 
     @PostMapping("/modelo-carro")
-    public ResponseEntity<ModeloCarro> save(@RequestBody ModeloCarro modeloCarro) {
+    public ResponseEntity<String> save(@RequestBody ModeloCarro modeloCarro) {
         modeloCarroService.save(modeloCarro);
-        return new ResponseEntity<>(modeloCarro, HttpStatus.CREATED);
+        return new ResponseEntity<>("Modelo de carro salvo com sucesso!", HttpStatus.CREATED);
     }
 
     @GetMapping("/modelo-carro")
     public ResponseEntity<List<ModeloCarro>> getAll() {
         List<ModeloCarro> modelosCarro = modeloCarroService.getAll();
+        if (modelosCarro.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
         return new ResponseEntity<>(modelosCarro, HttpStatus.OK);
     }
 
@@ -38,15 +41,18 @@ public class ModeloCarroController {
         return new ResponseEntity<>(modeloCarro, HttpStatus.OK);
     }
 
-
     @PutMapping("/modelo-carro")
-    public ResponseEntity<ModeloCarro> update(@RequestBody ModeloCarro modeloCarro) {
+    public ResponseEntity<String> update(@RequestBody ModeloCarro modeloCarro) {
         modeloCarroService.save(modeloCarro);
-        return new ResponseEntity<>(modeloCarro, HttpStatus.OK);
+        return new ResponseEntity<>("Modelo de carro atualizado com sucesso!", HttpStatus.OK);
     }
 
     @DeleteMapping("/modelo-carro/{id}")
     public ResponseEntity<String> delete(@PathVariable Long id) {
+        ModeloCarro modeloCarro = modeloCarroService.getById(id);
+        if (modeloCarro == null) {
+            return new ResponseEntity<>("Modelo de carro nao encontrado para o Id: " + id, HttpStatus.NOT_FOUND);
+        }
         modeloCarroService.delete(id);
         return new ResponseEntity<>("Modelo de carro deletado com sucesso!", HttpStatus.OK);
     }

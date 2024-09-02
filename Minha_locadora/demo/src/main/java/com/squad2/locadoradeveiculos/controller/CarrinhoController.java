@@ -17,9 +17,9 @@ public class CarrinhoController {
     private CarrinhoService carrinhoService;
 
     @PostMapping("/carrinhos")
-    public Carrinho save(@RequestBody Carrinho carrinho) {
+    public String save(@RequestBody Carrinho carrinho) {
         carrinhoService.save(carrinho);
-        return carrinho;
+        return "Carrinho cadastrado com sucesso";
     }
 
     @GetMapping("/carrinhos")
@@ -31,7 +31,7 @@ public class CarrinhoController {
     public Carrinho get(@PathVariable Long id) {
         Carrinho carrinho = carrinhoService.get(id);
         if (carrinho == null) {
-            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
+            throw new RuntimeException("Carrinho nao encontrado para o Id: " + id);
         }
         return carrinho;
     }
@@ -42,21 +42,21 @@ public class CarrinhoController {
     }
 
     @PutMapping("/carrinhos/{id}")
-    public Carrinho update(@PathVariable Long id, @RequestBody Carrinho carrinho) {
+    public String update(@PathVariable Long id, @RequestBody Carrinho carrinho) {
         Carrinho existingCarrinho = carrinhoService.get(id);
         if (existingCarrinho == null) {
-            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
+            throw new RuntimeException("Carrinho nao encontrado para o Id: " + id);
         }
         carrinho.setId(id);
         carrinhoService.save(carrinho);
-        return carrinho;
+        return "Carrinho atualizado com sucesso";
     }
 
     @DeleteMapping("/carrinhos/{id}")
     public String delete(@PathVariable Long id) {
         Carrinho carrinho = carrinhoService.get(id);
         if (carrinho == null) {
-            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
+            throw new RuntimeException("Carrinho nao encontrado para o Id: " + id);
         }
         carrinhoService.delete(id);
         return "Carrinho deletado com sucesso, Id: " + id;
@@ -76,7 +76,7 @@ public class CarrinhoController {
     public ResponseEntity<String> obterResumo(@PathVariable Long id) {
         Carrinho carrinho = carrinhoService.get(id);
         if (carrinho == null) {
-            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
+            throw new RuntimeException("Carrinho nao encontrado para o Id: " + id);
         }
 
         String resumo = carrinho.resumo();

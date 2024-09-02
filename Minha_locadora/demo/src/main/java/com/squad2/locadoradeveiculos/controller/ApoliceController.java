@@ -29,20 +29,20 @@ public class ApoliceController {
     public ApoliceSeguro get(@PathVariable Long id) {
         ApoliceSeguro apolice = apoliceService.get(id);
         if (apolice == null) {
-            throw new RuntimeException("Apolice not found for the Id: " + id);
+            throw new RuntimeException("Apolice nao encontrada para o Id: " + id);
         }
         return apolice;
     }
 
     @PutMapping("/apolice")
-    public ApoliceSeguro update(@RequestBody ApoliceSeguro apolice) {
+    public String update(@RequestBody ApoliceSeguro apolice) {
         apoliceService.save(apolice);
-        return apolice;
+        return "Apolice atualizada com sucesso";
     }
 
     @DeleteMapping("/apolice/{id}")
     public String delete(@PathVariable Long id) {
         apoliceService.delete(id);
-        return "Apolice has been deleted with id: " + id;
+        return "Apolice deletada com sucesso, Id: " + id;
     }
 }

@@ -16,9 +16,9 @@ public class AcessorioController {
     private AcessorioService acessorioService;
     
     @PostMapping("/acessorios")
-    public Acessorio save(@RequestBody Acessorio acessorio) {
+    public String save(@RequestBody Acessorio acessorio) {
         acessorioService.save(acessorio);
-        return acessorio;
+        return "Acessorio salvo com sucesso!";
     }
     
     @GetMapping("/acessorios")
@@ -30,20 +30,24 @@ public class AcessorioController {
     public Acessorio get(@PathVariable int id) {
         Acessorio acessorio = acessorioService.get(id);
         if (acessorio == null) {
-            throw new RuntimeException("Acessório não encontrado para o Id: " + id);
+            throw new RuntimeException("Acessorio nao encontrado para o Id: " + id);
         }
         return acessorio;
     }
     
     @PutMapping("/acessorios")
-    public Acessorio update(@RequestBody Acessorio acessorio) {
+    public String update(@RequestBody Acessorio acessorio) {
         acessorioService.save(acessorio);
-        return acessorio;
+        return "Acessorio atualizado com sucesso!";
     }
     
     @DeleteMapping("/acessorios/{id}")
     public String delete(@PathVariable int id) {
+        Acessorio acessorio = acessorioService.get(id);
+        if (acessorio == null) {
+            throw new RuntimeException("Acessorio nao encontrado para o Id: " + id);
+        }
         acessorioService.delete(id);
-        return "Acessório deletado com sucesso, Id: " + id;
+        return "Acessorio deletado com sucesso, Id: " + id;
     }
 }

@@ -17,9 +17,9 @@ public class CarroController {
     private CarroService carroService;
 
     @PostMapping("/carro")
-    public Carro save(@RequestBody Carro carro) {
+    public String save(@RequestBody Carro carro) {
         carroService.save(carro);
-        return carro;
+        return "Carro salvo com sucesso!";
     }
 
     @GetMapping("/carro")
@@ -31,21 +31,21 @@ public class CarroController {
     public Carro get(@PathVariable Long id) {
         Carro carro = carroService.get(id);
         if (carro == null) {
-            throw new RuntimeException("Carro not found for the Id: " + id);
+            throw new RuntimeException("Carro nao encontrado para o Id: " + id);
         }
         return carro;
     }
 
     @PutMapping("/carro")
-    public Carro update(@RequestBody Carro carro) {
+    public String update(@RequestBody Carro carro) {
         carroService.save(carro);
-        return carro;
+        return "Carro atualizado com sucesso!";
     }
 
     @DeleteMapping("/carro/{id}")
     public String delete(@PathVariable Long id) {
         carroService.delete(id);
-        return "Carro has been deleted with id: " + id;
+        return "Carro deletado com sucesso, Id: " + id;
     }
     
     @GetMapping("/carro/categoria/{categoria}")
@@ -57,5 +57,4 @@ public class CarroController {
     public List<Carro> getByAcessorio(@PathVariable String acessorio) {
         return carroService.getByAcessorio(acessorio);
     }
-
 }

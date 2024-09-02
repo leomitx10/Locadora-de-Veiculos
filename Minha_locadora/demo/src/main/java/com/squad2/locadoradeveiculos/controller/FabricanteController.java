@@ -15,9 +15,9 @@ public class FabricanteController {
     private FabricanteService fabricanteService;
 
     @PostMapping("/fabricante")
-    public Fabricante save(@RequestBody Fabricante fabricante) {
+    public String save(@RequestBody Fabricante fabricante) {
         fabricanteService.save(fabricante);
-        return fabricante;
+        return "Fabricante salvo com sucesso.";
     }
 
     @GetMapping("/fabricante")
@@ -29,20 +29,24 @@ public class FabricanteController {
     public Fabricante get(@PathVariable Long id) {
         Fabricante fabricante = fabricanteService.get(id);
         if (fabricante == null) {
-            throw new RuntimeException("Fabricante not found for the Id: " + id);
+            throw new RuntimeException("Fabricante nao encontrado para o Id: " + id);
         }
         return fabricante;
     }
 
     @PutMapping("/fabricante")
-    public Fabricante update(@RequestBody Fabricante fabricante) {
+    public String update(@RequestBody Fabricante fabricante) {
         fabricanteService.save(fabricante);
-        return fabricante;
+        return "Fabricante atualizado com sucesso.";
     }
 
     @DeleteMapping("/fabricante/{id}")
     public String delete(@PathVariable Long id) {
+        Fabricante fabricante = fabricanteService.get(id);
+        if (fabricante == null) {
+            throw new RuntimeException("Fabricante nao encontrado para o Id: " + id);
+        }
         fabricanteService.delete(id);
-        return "Fabricante has been deleted with id: " + id;
+        return "Fabricante foi excluido com o Id: " + id;
     }
 }
