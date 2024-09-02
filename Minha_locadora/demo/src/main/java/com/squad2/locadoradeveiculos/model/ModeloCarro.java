@@ -12,7 +12,7 @@ public class ModeloCarro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = false)
+    @Column(nullable = false, unique = true)
     private String descricao;
 
     @ManyToOne

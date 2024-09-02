@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.squad2.locadoradeveiculos.controller.UserController;
+import com.squad2.locadoradeveiculos.model.Aluguel;
 import com.squad2.locadoradeveiculos.model.Motorista;
 import com.squad2.locadoradeveiculos.model.User;
+import com.squad2.locadoradeveiculos.service.AluguelService;
 import com.squad2.locadoradeveiculos.service.MotoristaService;
 
 @RestController
@@ -22,7 +23,10 @@ import com.squad2.locadoradeveiculos.service.MotoristaService;
 public class MotoristaController {
 
     @Autowired
-    private UserController userService; 
+    private UserController userService;
+    
+    @Autowired
+    private AluguelService aluguelService;
 
     @Autowired
     private MotoristaService motoristaService;
@@ -73,5 +77,10 @@ public class MotoristaController {
         motorista.setUser(user);
         motoristaService.save(motorista);
         return "Motorista cadastrado com sucesso";
+    }
+
+    @GetMapping("/motorista/{motoristaId}/alugueis")
+        public List<Aluguel> getAlugueisByMotoristaId(@PathVariable Integer motoristaId) {
+        return aluguelService.getByMotoristaId(motoristaId);
     }
 }

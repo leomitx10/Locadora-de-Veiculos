@@ -50,4 +50,12 @@ public class AluguelDAOImpl implements AluguelDAO {
         query.setParameter("userId", userId);
         return query.getResultList();
     }
+
+    @Override
+    public List<Aluguel> findByMotoristaId(Integer motoristaId) {
+        Session currentSession = entityManager.unwrap(Session.class);
+        Query<Aluguel> query = currentSession.createQuery("from Aluguel where motorista.id = :motoristaId", Aluguel.class);
+        query.setParameter("motoristaId", motoristaId);
+        return query.getResultList();
+}
 }

@@ -13,5 +13,7 @@ public interface AluguelDAO {
     
     void delete(int id);
     
-    List<Aluguel> getByUserId(Long userId);  
+    List<Aluguel> getByUserId(Long userId);
+
+    List<Aluguel> findByMotoristaId(Integer motoristaId); 
 }

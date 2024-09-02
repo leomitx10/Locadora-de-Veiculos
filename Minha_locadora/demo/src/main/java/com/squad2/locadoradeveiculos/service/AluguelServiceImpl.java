@@ -88,4 +88,8 @@ public class AluguelServiceImpl implements AluguelService {
             throw new RuntimeException("Aluguel não encontrado com id: " + aluguelId);
         }
     }
+
+    public List<Aluguel> getByMotoristaId(Integer motoristaId) {
+        return aluguelDAO.findByMotoristaId(motoristaId);
+    }
 }
