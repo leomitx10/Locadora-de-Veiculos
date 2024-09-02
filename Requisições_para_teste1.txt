@@ -1,0 +1,194 @@
+API
+
+Cadastrar Usuário:
+[POST] http://localhost:8080/api/register
+{
+    "email": "leomitx10@gmail.com",
+    "password": "123456789"
+}
+[GET] http://localhost:8080/api/users
+ 
+Cadastrar Motorista
+[POST] http://localhost:8080/api/user/motorista/1
+{
+    "nome": "Mateus Pereira",
+    "cpf": "777.777.789-00",
+    "dataNascimento": "2000-10-25",
+    "numeroCNH": "12345678900",
+    "sexo": "MASCULINO",
+    "user": {
+    "id": 1
+    }
+}
+[GET] http://localhost:8080/api/user/motorista/1
+
+[POST] http://localhost:8080/api/funcionario
+{
+        "nome": "Lucas Pereira2",
+        "cpf": "877.767.789-00",
+        "dataNascimento": "2001-10-24",
+        "sexo": "MASCULINO",
+        "matricula": "223446"
+    }
+
+[GET] http://localhost:8080/api/funcionario
+
+Cadastrar Fabricante
+[POST] http://localhost:8080/api/fabricante
+
+{
+    "nome": "Ford"
+}
+
+[GET] http://localhost:8080/api/fabricante
+
+Cadastrar Modelo Carro
+[POST] http://localhost:8080/api/modelo-carro
+
+{
+    "descricao": "MINIVAN",
+    "categoria": "MINIVAN",
+    "fabricante": {
+            "id": 1
+    }
+}
+
+[GET] http://localhost:8080/api/modelo-carro
+
+Cadastrar Acessorios
+[POST] http://localhost:8080/api/acessorios
+
+{
+    "descricao": "Ar condicionado"
+}
+
+[GET] http://localhost:8080/api/acessorios
+
+Cadastrar Carro
+[POST] http://localhost:8080/api/carro
+
+{
+        "id": 1,
+        "placa": "BBC-1234",
+        "chassi": "BBC123456789XYZ",
+        "cor": "Preto",
+        "valorDiaria": 150.00,
+        "modeloCarro": {
+            "id": 1,
+            "fabricante": {
+                "id": 1
+            }
+        },
+        "acessorios": [
+            {
+                "id": 1
+            }
+        ]
+    }
+    
+[GET] http://localhost:8080/api/carro
+    
+Pesquisar Carro por Categoria
+
+[GET] http://localhost:8080/api/carro/categoria/MINIVAN
+
+Pesquisar Carro por Acessorio
+
+[GET] http://localhost:8080/api/carro/acessorio/Ar condicionado
+    
+Cadastrar Apolice
+[POST] http://localhost:8080/api/apolice
+{  
+    "valorFranquia": 1200.00,
+    "protecaoTerceiro": true,
+    "protecaoCausasNaturais": true,
+    "protecaoRoubo": false
+}
+[GET]  http://localhost:8080/api/apolice
+
+Cadastrar Aluguel
+[POST] http://localhost:8080/api/aluguel
+
+{
+        "dataPedido": "2024-08-30",
+        "dataEntrega": "2024-09-10",
+        "dataDevolucao": "2024-09-15",
+        "valorTotal": 250.00,
+        "carro": {
+            "id": 1,
+            "modeloCarro": {
+                "id": 1,
+                "descricao": "MINIVAN",
+                "fabricante": {
+                    "id": 1,
+                    "nome": "Ford"
+                },
+                "categoria": "MINIVAN"
+            },
+            "acessorios": [
+                {
+                    "id": 1,
+                    "descricao": "Ar condicionado"
+                }
+            ]
+        },
+        "apolice": {
+            "id": 1
+        },
+        "motorista":{
+          "id":1
+        }
+    }
+
+[GET] http://localhost:8080/api/aluguel
+
+Cadastrar Aluguel em um Carrinho
+
+[POST] http://localhost:8080/api/carrinho/{carrinhoId}/aluguel/{aluguelId}
+
+Buscar Alugueis no Carrinho de um usuario
+
+[GET] http://localhost:8080/api/carrinho/1{usuarioid}
+
+Exibir resumo
+
+[GET] http://localhost:8080/api/carrinhos/1/resumo
+
+Confirmar Pagamento
+
+[POST] http://localhost:8080/api/confirmar/1
+
+
+http://localhost:8080/api/motorista/1/alugueis
+
+{
+        "dataPedido": "2024-08-30",
+        "dataEntrega": "2024-09-10",
+        "dataDevolucao": "2024-09-15",
+        "valorTotal": 250.00,
+        "carro": {
+            "id": 1,
+            "modeloCarro": {
+                "id": 1,
+                "descricao": "MINIVAN",
+                "fabricante": {
+                    "id": 1,
+                    "nome": "Ford"
+                },
+                "categoria": "MINIVAN"
+            },
+            "acessorios": [
+                {
+                    "id": 1,
+                    "descricao": "Ar condicionado"
+                }
+            ]
+        },
+        "apolice": {
+            "id": 1
+        },
+        "motorista":{
+          "id":1
+        }
+    }
+
