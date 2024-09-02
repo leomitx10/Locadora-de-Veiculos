@@ -12,8 +12,6 @@ public class Pagamento{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private BigDecimal custoTotal;
-
     @Column(length = 16, nullable = false)
     private String numeroCartao;
 
@@ -33,14 +31,6 @@ public class Pagamento{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public BigDecimal getCustoTotal() {
-		return custoTotal;
-	}
-
-	public void setCustoTotal(BigDecimal custoTotal) {
-		this.custoTotal = custoTotal;
 	}
 
 	public String getNumeroCartao() {
