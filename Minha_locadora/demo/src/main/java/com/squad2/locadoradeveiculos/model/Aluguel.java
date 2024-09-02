@@ -3,8 +3,6 @@ package com.squad2.locadoradeveiculos.model;
 import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.concurrent.TimeUnit;
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -42,7 +40,13 @@ public class Aluguel {
     @JoinColumn(name = "carrinho_id", nullable = true)
     @JsonIgnore
     private Carrinho carrinho;
+
+    @ManyToOne
+    @JoinColumn(name = "motorista_id", nullable = false) 
+    private Motorista motorista; 
     
+    // Getters e Setters
+
     public Integer getId() {
         return id;
     }
@@ -107,10 +111,18 @@ public class Aluguel {
         this.carrinho = carrinho;
     }
 
+    public Motorista getMotorista() {
+        return motorista;
+    }
+
+    public void setMotorista(Motorista motorista) {
+        this.motorista = motorista;
+    }
+
     @Override
     public String toString() {
         return "Aluguel [id=" + id + ", dataPedido=" + dataPedido + ", dataEntrega=" + dataEntrega + ", dataDevolucao="
                 + dataDevolucao + ", valorTotal=" + valorTotal + ", carro=" + carro 
-                + ", apolice=" + apolice + "]";
+                + ", apolice=" + apolice + ", motorista=" + motorista + "]";
     }
 }
