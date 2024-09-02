@@ -2,6 +2,7 @@ package com.example.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.Aluguel;
@@ -71,6 +72,15 @@ public class CarrinhoController {
         }
     }
     
-    
+    @GetMapping("/carrinhos/{id}/resumo")
+    public ResponseEntity<String> obterResumo(@PathVariable Long id) {
+        Carrinho carrinho = carrinhoService.get(id);
+        if (carrinho == null) {
+            throw new RuntimeException("Carrinho não encontrado para o Id: " + id);
+        }
+
+        String resumo = carrinho.resumo();
+        return ResponseEntity.ok(resumo);
+    }
 
 }

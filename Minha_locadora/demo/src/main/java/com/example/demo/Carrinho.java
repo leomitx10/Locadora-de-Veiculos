@@ -1,6 +1,8 @@
 package com.example.demo;
 
 import jakarta.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -18,7 +20,26 @@ public class Carrinho {
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 
-    // Getters and setters
+    public String resumo() {
+        List<Aluguel> alugueis = this.getAlugueis();
+        BigDecimal custoTotal = alugueis.stream()
+                                        .map(Aluguel::getValorTotal)
+                                        .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        StringBuilder resumo = new StringBuilder();
+        resumo.append("Resumo do Carrinho:\n");
+
+        for (Aluguel aluguel : alugueis) {
+            Carro carro = aluguel.getCarro();
+            resumo.append("\nVeículo: ").append(carro.getModeloCarro().getDescricao());
+            resumo.append("\nPlaca: ").append(carro.getPlaca());
+            resumo.append("\nData de Aluguel: ").append(aluguel.getDataEntrega()).append(" - ").append(aluguel.getDataDevolucao()).append("\n");
+        }
+
+        resumo.append("\nCusto total estimado: R$").append(custoTotal);
+
+        return resumo.toString();
+    }
 
     public Long getId() {
         return id;
