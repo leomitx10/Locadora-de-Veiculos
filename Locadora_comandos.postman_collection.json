@@ -1,0 +1,601 @@
+{
+	"info": {
+		"_postman_id": "1c24cb84-48d8-4725-975f-731895f42510",
+		"name": "Locadora_comandos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38052730"
+	},
+	"item": [
+		{
+			"name": "Cadastrar Usuário",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"leomitx10@gmail.com\",\r\n    \"password\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Usuário",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Motorista",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \"nome\": \"Mateus Pereira\",\r\n    \"cpf\": \"777.777.789-00\",\r\n    \"dataNascimento\": \"2000-10-25\",\r\n    \"numeroCNH\": \"12345678900\",\r\n    \"sexo\": \"MASCULINO\",\r\n    \"user\": {\r\n    \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/motorista/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"motorista",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar motorista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/user/motorista/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"user",
+						"motorista",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Fabricante",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nome\": \"Ford\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/fabricante",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabricante"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verificar Fabricante",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/fabricante",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"fabricante"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Modelo Carro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descricao\": \"MINIVAN\",\r\n    \"categoria\": \"MINIVAN\",\r\n    \"fabricante\": {\r\n            \"id\": 1\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/modelo-carro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo-carro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar modelo carro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/modelo-carro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"modelo-carro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Acessorios",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"descricao\": \"Ar condicionado\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/acessorios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"acessorios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Acessorios",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/acessorios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"acessorios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Carro",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n        \"id\": 1,\r\n        \"placa\": \"BBC-1234\",\r\n        \"chassi\": \"BBC123456789XYZ\",\r\n        \"cor\": \"Preto\",\r\n        \"valorDiaria\": 150.00,\r\n        \"modeloCarro\": {\r\n            \"id\": 1,\r\n            \"fabricante\": {\r\n                \"id\": 1\r\n            }\r\n        },\r\n        \"acessorios\": [\r\n            {\r\n                \"id\": 1\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/carro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Carro",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carro"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisar Carro por Categoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carro/categoria/MINIVAN",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carro",
+						"categoria",
+						"MINIVAN"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Pesquisar Carro por Acessorio",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carro/acessorio/ar condicionado",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carro",
+						"acessorio",
+						"ar condicionado"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Apolice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \r\n    \"valorFranquia\": 1200.00,\r\n    \"protecaoTerceiro\": true,\r\n    \"protecaoCausasNaturais\": true,\r\n    \"protecaoRoubo\": false\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/apolice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"apolice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Apolice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/apolice",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"apolice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Aluguel",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n        \"dataPedido\": \"2024-08-30\",\r\n        \"dataEntrega\": \"2024-09-10\",\r\n        \"dataDevolucao\": \"2024-09-15\",\r\n        \"valorTotal\": 250.00,\r\n        \"carro\": {\r\n            \"id\": 1,\r\n            \"modeloCarro\": {\r\n                \"id\": 1,\r\n                \"descricao\": \"MINIVAN\",\r\n                \"fabricante\": {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Ford\"\r\n                },\r\n                \"categoria\": \"MINIVAN\"\r\n            },\r\n            \"acessorios\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"descricao\": \"Ar condicionado\"\r\n                }\r\n            ]\r\n        },\r\n        \"apolice\": {\r\n            \"id\": 1\r\n        },\r\n        \"motorista\":{\r\n          \"id\":1\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/aluguel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aluguel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Aluguel",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/aluguel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"aluguel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastrar Aluguel em um Carrinho",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/carrinho/1/aluguel/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrinho",
+						"1",
+						"aluguel",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Alugueis no Carrinho de um usuario",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carrinho/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrinho",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Exibir Resumo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/carrinhos/1/resumo",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"carrinhos",
+						"1",
+						"resumo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Confirmar Pagamento",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/confirmar/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"confirmar",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Verificar Alugueis confirmados",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"dataPedido\": \"2024-08-30\",\r\n        \"dataEntrega\": \"2024-09-10\",\r\n        \"dataDevolucao\": \"2024-09-15\",\r\n        \"valorTotal\": 250.00,\r\n        \"carro\": {\r\n            \"id\": 1,\r\n            \"modeloCarro\": {\r\n                \"id\": 1,\r\n                \"descricao\": \"MINIVAN\",\r\n                \"fabricante\": {\r\n                    \"id\": 1,\r\n                    \"nome\": \"Ford\"\r\n                },\r\n                \"categoria\": \"MINIVAN\"\r\n            },\r\n            \"acessorios\": [\r\n                {\r\n                    \"id\": 1,\r\n                    \"descricao\": \"Ar condicionado\"\r\n                }\r\n            ]\r\n        },\r\n        \"apolice\": {\r\n            \"id\": 1\r\n        },\r\n        \"motorista\":{\r\n          \"id\":1\r\n        }\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/motorista/1/alugueis",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"motorista",
+						"1",
+						"alugueis"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
